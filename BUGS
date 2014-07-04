@@ -1,0 +1,13 @@
+$Id: BUGS 37 2006-02-22 16:21:49Z jgrelet $
+
+Fichier des bugs pour projet datagui
+
+22/02/2006:
+-----------
+fclose(fd) dans @profil/read_file_xml genere une erreur sous Linux
+
+La selection des profils retourne un vecteur vide avec m_map
+
+Le trace des variables ne marche pas avec fichier type datagui et netcdf
+revoir la structure en memoire car celle utilisee avec les fichiers nc me parait 
+correcte

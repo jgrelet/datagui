@@ -1,0 +1,193 @@
+$Id: README 128 2007-03-12 16:05:06Z jgrelet $
+
+Installation:
+-------------
+ voir fichier INSTALL
+
+Utilisation:
+------------
+ Lancer le script datagui depuis votre répertoire courant.
+ Sélectionner le fichier à visualiser dans la listBox du haut.
+ Visualiser la validité des positions en choisissant différente
+ options dans la listBox "Set route axis" 
+ Dans la figure de tracé de la route, sélectionner une station et
+ cliquant sur sa position.
+ 
+ Les données sont présente dans le workspace avec la convention NetCDF
+ Pour les utiliser avec des scripts externe ou depuis la ligne de commande,
+ ouvrir une nouvelle figure et tapez vos commandes
+ ex:
+ > figure
+ > plot(TEMP,PRES)
+
+ La configuration du script est stockée dans une structure root du champ UserData de
+ la figure racine.
+ 
+ Pour y accéder en interactif:
+ > root = get(0, 'UserData' )
+
+ root = 
+             version: '0.30h'
+          matlab_ver: '7.1.0.246 (R14) Service Pack 3'
+          selectmode: 'off'
+               files: {'egee2_ctd.xml'}
+         files_value: 1
+                 ext: '_ctd.xml'
+       selected_file: 'B:\cvs\datagui\data\egee2_ctd.xml'
+                path: 'B:\cvs\datagui\data\'
+              format: {1x5 cell}
+        format_value: 2
+                type: {1x7 cell}
+          type_value: 5
+                axis: {'DAYD'  'LATX'  'LONX'}
+          axis_value: 3
+               route: {'LAT/LON'  'DAYD/LAT'  'DAYD/LON'}
+         route_value: 1
+                 map: {'NONE'  'M_MAP'  'MATLAB'}
+           map_value: 1
+      markersize_lbl: {'1'  '2'  '3'  '4'  '6'  '8'  '10'}
+    markersize_value: 4
+          markersize: 4
+                self: [1x1 profil]
+             levitus: 'off'
+
+ A la sortie du programme, cette structure est stockée dans le fichier 
+ %appdata%\MathWorks\MATLAB\<RELEASE_MATLAB>\datagui.mat
+ soit sous Windows XP: 
+ C:\Documents and Settings\jgrelet\Application Data\MathWorks\MATLAB\R14SP3\datagui.mat
+ ou sous Linux:
+ ~/.matlab\datagui.mat 
+ 
+ Important:
+ ----------
+ Si vous changez la structure root, ou si vous voulez ecraser le fichier datagui.mat, 
+ il n'est pas necessaire de l'effacer dans le repertoire %appdata%
+ il suffit dans datagui.m de changer le numero de la variable VERSION. 
+ Pour info, la structure root est definie dans init_config.m 
+ 
+
+ Le script utilise la syntaxe objet Matlab pour y stocker les variables dans root.self:
+
+ > root.self
+  Class name: profil
+
+       indice: 1
+      data_2d: [1x1 hashtable]
+    backup_2d: [1x1 hashtable]
+       roscop: [1x1 roscop]
+       oceano: [1x1 oceano]
+
+  data_2d hashtable: 
+    'PRFL'    [62x2012 double]
+    'PRES'    [62x2012 double]
+    'TEMP'    [62x2012 double]
+    'PSAL'    [62x2012 double]
+    'DENS'    [62x2012 double]
+    'SVEL'    [62x2012 double]
+    'DOX2'    [62x2012 double]
+    'FLU2'    [62x2012 double]
+
+  Parent oceano: 
+    descriptor: 'none'
+          date: '28-Nov-2005'
+       visible: 'on'
+     type_file: 'undef'
+          path: 'C:\cvs\datagui\data\'
+          file: 'B:\cvs\datagui\data\egee2_ctd.xml'
+       data_0d: [1x1 hashtable]
+       data_1d: [1x1 hashtable]
+     backup_0d: [1x1 hashtable]
+     backup_1d: [1x1 hashtable]
+         color: {'b'  'r'  'k'  'g'  'y'  'c'  'm'  'w'}
+
+  data_0d hashtable: 
+    'CRUISE'    [1x14 char]
+
+  data_1d hashtable: 
+    'REFERENCE_DATE_TIME'    '20050905161635'
+    'STATION_NUMBER'            [1x62 double]
+    'DAYD'                      [1x62 double]
+    'LATX'                      [1x62 double]
+    'LONX'                      [1x62 double]
+
+  Parent roscop: 
+          codes: {330x1 cell}
+    description: {330x1 cell}
+           unit: {330x1 cell}
+            min: [330x1 double]
+            max: [330x1 double]
+         format: {330x1 cell}
+            bad: [330x1 double]
+ 
+ Les codes ROSCOP sont stockés dans la classe roscop.
+
+ Les données sont stockées dans des tables de hashage (tableaux associatifs) ou
+ hashtable en Anglais. La classe hashtable est inclue dans datagui. Voir:
+ http://www.mathworks.com/matlabcentral/fileexchange/loadFile.do?objectId=6514&objectType=FILE
+
+ data_0d: utilise pour stocker les attributs globaux
+ data_1d: utilise pour stocker les variables a 1 dimension (eg DAYD, LATX et LONX)
+ data_2d: utilise pour stocker les variables a 2 dimensions (eg PRES, TEMP, etc)
+
+ Pour accéder aux données depuis la ligne de commande (utile pour la mise au point):
+ utiliser les methodes d'accès aux classes:
+
+ >> root = get(0, 'userdata');
+ >> data_0d( root.self)
+ ans =
+    'CRUISE'    [1x14 char]
+ 
+ >> data_1d( root.self)
+ ans =
+    'REFERENCE_DATE_TIME'    '20050905161635'
+    'STATION_NUMBER'            [1x62 double]
+    'DAYD'                      [1x62 double]
+    'LATX'                      [1x62 double]
+    'LONX'                      [1x62 double]
+ 
+ >> data_2d( root.self)
+ ans =
+    'PRFL'    [62x2012 double]
+    'PRES'    [62x2012 double]
+    'TEMP'    [62x2012 double]
+    'PSAL'    [62x2012 double]
+    'DENS'    [62x2012 double]
+    'SVEL'    [62x2012 double]
+    'DOX2'    [62x2012 double]
+    'FLU2'    [62x2012 double]
+ 
+ Pour recuperer ensuite les données d'une table de hashage, utiliser la methode get:
+
+ >> TEMP = get(data_2d( root.self),'TEMP');
+
+ >> TEMP(1,1:10)
+
+ ans =
+   25.6070   25.6180   25.6210   25.6190   25.6200   25.6170   25.5810
+   25.5710   25.5790   25.5820
+ 
+ TEMP(1,1:10) visualise les dix premiers niveaux de la station 1.
+ 
+ Egalement utilisé dans @profil/plot:
+
+ >> cles    = keys(   data_2d( self ) );
+ >> valeurs = values( data_2d( self ) );
+ 
+ >> cles
+ cles = 
+    'PRFL'    'PRES'    'TEMP'    'PSAL'    'DENS'    'SVEL'    'DOX2'    'FLU2'
+
+ >> cles{3}
+ ans =
+  TEMP
+ 
+ >> valeurs{4}(1:10)
+ ans =
+   35.6480   36.1450   35.9890   35.9890   35.9080   35.9730   35.9710
+   35.9290   35.9380   35.9490
+
+ Facile !!!! CQFD
+
+ Les tables de hashages backup sont une copie des données lues au démarrage du 
+ script. Elles permettront d'avoir une copie en memoire de données originales lorsque 
+ la gestion des code de qualite (_QC) sera implémentée.
