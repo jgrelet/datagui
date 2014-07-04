@@ -1,0 +1,71 @@
+function theResult = subsref(self, theStruct)
+
+% netcdf/subsref -- Overloaded "()" operator.
+% Also see: netcdf/subsasgn.
+
+if nargin < 1, help(mfilename), return, end
+
+if ~self.AutoAccess
+  try
+    theResult = builtin('subsref', self, theStruct);
+    return
+  catch 
+    warning('set AutoAccess = true');
+  return
+  end
+end
+
+theType = theStruct(1).type;
+theSubs = theStruct(1).subs;
+if isa(theSubs, 'cell')
+  theSubs = char(theSubs);
+end
+
+switch theType
+  case {'{}', '()', '.'}
+    if isfield(self.Dimensions, theSubs)
+      theResult = self.Dimensions.(theSubs).dimlen;
+    elseif isfield(self.Variables, theSubs)
+      theResult = self.Variables.(theSubs).data__;
+    elseif isfield(self.Attributes, theSubs)
+      theResult = self.Attributes.(theSubs).data__;
+    else
+      try
+        theResult = builtin('subsref', self, theStruct);
+      catch 
+         warning('invalide variable : %s', theSubs);
+         return
+      end
+    end
+    
+  otherwise
+    theResult = builtin('subsref', self, theStruct);
+end
+
+% the case of:  nc.TEMP(1,:)
+if length(theStruct) == 2
+  theType2 = theStruct(2).type;
+  theSubs2 = theStruct(2).subs;
+  if isfield(self.Variables, theSubs) % only for variables
+    
+    switch theType2
+      case '()'
+        switch length(theSubs2)
+          case 1    % nc.TEMP(:)
+          case 2    % nc.TEMP(1,:)
+            theResult = theResult(theSubs2{1},theSubs2{2});
+          otherwise
+            warning(['datagui.netcdf.subsref: ', 'invalide indexing']);
+            theResult = [];
+        end
+      case '.'
+        theResult = theResult.data__;
+      otherwise
+        warning(['datagui.netcdf.subsref: ', ' invalide indexing']);
+        theResult = [];
+    end
+  else
+    warning(['datagui.netcdf.subsref: ', 'invalide indexing']);
+    theResult = [];
+  end
+end

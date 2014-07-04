@@ -1,0 +1,68 @@
+function self = subsasgn(self, theStruct, theValue)
+
+% netcdf/subsasgn -- Assignment with "{}", "()", and ".".
+%  subsasgn(self, theStruct, other) is called whenever
+%   self is used with subindexing on the left-side of
+%   an assignment, as in self{...} = other, for
+%   self, a "netcdf" object.
+
+% Also see: netcdf/subsref.
+
+if nargin < 1, help(mfilename), return, end
+
+% if length(theStruct) < 1
+%    result = other;
+%    if nargout > 1
+%       theResult = result;
+%    else
+%       disp(result)
+%    end
+%    return
+% end
+
+theType = theStruct(1).type;
+theSubs = theStruct(1).subs;
+if isa(theSubs, 'cell')
+  theSubs = char(theSubs);
+end
+
+% the case of:  nc.TEMP = a or nc('TEMP') = a
+switch length(theStruct)
+  case 1
+    switch theType
+      case {'{}', '()', '.'}
+        if isfield(self.Dimensions, theSubs)
+          self.Dimensions.(theSubs).dimlen = theValue;
+        elseif isfield(self.Variables, theSubs)
+          self.Variables.(theSubs).data__ = theValue;
+        elseif isfield(self.Attributes, theSubs)
+          self.Attributes.(theSubs).data__ = theValue;
+        else
+          self = builtin('subsasgn', self, theStruct, theValue);
+         %warning(['datagui.netcdf.subsasgn: ', theSubs, ' invalide variable']);          
+        end        
+      otherwise
+        self = builtin('subsasgn', self, theStruct, theValue);
+    end
+    
+  % the case of:  nc.TEMP(1,:) = a
+  case 2
+    if isfield(self.Variables, theSubs) % only for variables
+      theType2 = theStruct(2).type;
+      theSubs2 = theStruct(2).subs;
+      switch theType2
+        case '()'
+          switch length(theSubs2)
+            case 1    % nc.TEMP(:)
+            case 2    % nc.TEMP(1,:)
+              self.Variables.(theSubs).data__(theSubs2{1},theSubs2{2}) = theValue;
+            otherwise
+              warning(['datagui.netcdf.subsasgn: ', 'invalide indexing']);
+          end
+        otherwise
+          warning(['datagui.netcdf.subsasgn: ', ' invalide indexing']);
+      end
+    else
+      warning(['datagui.netcdf.subsref: ', 'invalide indexing']);
+    end
+end

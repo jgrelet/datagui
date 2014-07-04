@@ -1,0 +1,152 @@
+{
+	"MERCURE": {
+		"Masse": {
+			"key__": "Masse",
+			"Num": 1,
+			"Description": "Masse comparee a la Terre",
+			"Unit": "",
+			"Valeur": 0.056,
+			"TestLogical": 1
+		},
+		"Diametre": {
+			"key__": "Diametre",
+			"Num": 2,
+			"Description": "Diametre a l'equateur",
+			"Unit": "km",
+			"Valeur": 4860,
+			"TestLogical": 0
+		},
+		"Densite": {
+			"key__": "Densite",
+			"Num": 3,
+			"Description": "Densite moyenne",
+			"Unit": "g/cm3",
+			"Valeur": 5.6,
+			"TestLogical": 1
+		},
+		"Journee": {
+			"key__": "Journee",
+			"Num": 4,
+			"Description": "Duree d'une journee",
+			"Unit": "jours",
+			"Valeur": 58.625,
+			"TestLogical": 0
+		},
+		"Revolution": {
+			"key__": "Revolution",
+			"Num": 5,
+			"Description": "Periode de revolution",
+			"Unit": "jours",
+			"Valeur": 88,
+			"TestLogical": 1
+		},
+		"DistanceSoleil": {
+			"key__": "DistanceSoleil",
+			"Num": 6,
+			"Description": "Distance au soleil",
+			"Unit": "Mkm",
+			"Valeur": 58,
+			"TestLogical": 0
+		}
+	},
+	"VENUS": {
+		"Masse": {
+			"key__": "Masse",
+			"Num": 1,
+			"Description": "Masse comparee a la Terre",
+			"Unit": "",
+			"Valeur": 0.82,
+			"TestLogical": 1
+		},
+		"Diametre": {
+			"key__": "Diametre",
+			"Num": 2,
+			"Description": "Diametre a l'equateur",
+			"Unit": "km",
+			"Valeur": 12140,
+			"TestLogical": 0
+		},
+		"Densite": {
+			"key__": "Densite",
+			"Num": 3,
+			"Description": "Densite moyenne",
+			"Unit": "g/cm3",
+			"Valeur": 5.2,
+			"TestLogical": 1
+		},
+		"Journee": {
+			"key__": "Journee",
+			"Num": 4,
+			"Description": "Duree d'une journee",
+			"Unit": "jours",
+			"Valeur": 243,
+			"TestLogical": 0
+		},
+		"Revolution": {
+			"key__": "Revolution",
+			"Num": 5,
+			"Description": "Periode de revolution",
+			"Unit": "jours",
+			"Valeur": 225,
+			"TestLogical": 1
+		},
+		"DistanceSoleil": {
+			"key__": "DistanceSoleil",
+			"Num": 6,
+			"Description": "Distance au soleil",
+			"Unit": "Mkm",
+			"Valeur": 108,
+			"TestLogical": 0
+		}
+	},
+	"TERRE": {
+		"Masse": {
+			"key__": "Masse",
+			"Num": 1,
+			"Description": "Masse comparee a la Terre",
+			"Unit": "",
+			"Valeur": 1,
+			"TestLogical": 1
+		},
+		"Diametre": {
+			"key__": "Diametre",
+			"Num": 2,
+			"Description": "Diametre a l'equateur",
+			"Unit": "km",
+			"Valeur": 12760,
+			"TestLogical": 0
+		},
+		"Densite": {
+			"key__": "Densite",
+			"Num": 3,
+			"Description": "Densite moyenne",
+			"Unit": "g/cm3",
+			"Valeur": 5.5,
+			"TestLogical": 1
+		},
+		"Journee": {
+			"key__": "Journee",
+			"Num": 4,
+			"Description": "Duree d'une journee",
+			"Unit": "heures",
+			"Valeur": 23.93,
+			"TestLogical": 0
+		},
+		"Revolution": {
+			"key__": "Revolution",
+			"Num": 5,
+			"Description": "Periode de revolution",
+			"Unit": "jours",
+			"Valeur": 365.25,
+			"TestLogical": 1
+		},
+		"DistanceSoleil": {
+			"key__": "DistanceSoleil",
+			"Num": 6,
+			"Description": "Distance au soleil",
+			"Unit": "Mkm",
+			"Valeur": 150,
+			"TestLogical": 0
+		}
+	}
+}

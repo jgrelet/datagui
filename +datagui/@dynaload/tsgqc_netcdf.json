@@ -1,0 +1,3876 @@
+{
+	"DIMENSIONS": {
+		"DAYD": {
+			"key__": "DAYD",
+			"dimlen": {
+				"_ArrayType_": "int32",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"unlimited": 0,
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"DAYD_EXT": {
+			"key__": "DAYD_EXT",
+			"dimlen": {
+				"_ArrayType_": "int32",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"unlimited": 0,
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"NCOEF_CAL": {
+			"key__": "NCOEF_CAL",
+			"dimlen": 7,
+			"unlimited": 0,
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"NCOEF_LIN": {
+			"key__": "NCOEF_LIN",
+			"dimlen": 2,
+			"unlimited": 0,
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"STRING256": {
+			"key__": "STRING256",
+			"dimlen": 256,
+			"unlimited": 0,
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"STRING14": {
+			"key__": "STRING14",
+			"dimlen": 14,
+			"unlimited": 0,
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"STRING8": {
+			"key__": "STRING8",
+			"dimlen": 8,
+			"unlimited": 0,
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"STRING4": {
+			"key__": "STRING4",
+			"dimlen": 4,
+			"unlimited": 0,
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"N1": {
+			"key__": "N1",
+			"dimlen": 1,
+			"unlimited": 0,
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		}
+	},
+	"VARIABLES": {
+		"REFERENCE_DATE_TIME": {
+			"key__": "REFERENCE_DATE_TIME",
+					"dimension__": "STRING14",
+			"type__": "char",
+			"long_name": "ORIGIN OF TIME",
+			"standard_name": "",
+			"units": "",
+			"conventions": "yyyymmddHHMMSS",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Reference date for julian days origin. The recommended reference date time is \"19500101000000\": January 1st 1950 00:00:00",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"DATE": {
+			"key__": "DATE",
+			"dimension__": [
+						"DAYD",
+						"STRING14"
+			],
+			"type__": "char",
+			"long_name": "DATE OF MAIN INSTRUMENT MEASUREMENT",
+			"standard_name": "",
+			"units": "",
+			"conventions": "yyyymmddHHMMSS",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "This is the original data describing the date, it must not be lost",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"DATE_EXT": {
+			"key__": "DATE_EXT",
+			"dimension__": [
+						"DAYD_EXT",
+						"STRING14"
+			],
+			"type__": "char",
+			"long_name": "DATE OF EACH EXTERNAL DATA MEASUREMENT",
+			"standard_name": "",
+			"units": "",
+			"conventions": "yyyymmddHHMMSS",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "This is the original data describing the date, it must not be lost",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD_EXT",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"DAYD": {
+			"key__": "DAYD",
+					"dimension__": "DAYD",
+			"type__": "double",
+			"long_name": "DECIMAL JULIAN DAY (UTC) OF EACH MEASUREMENT",
+			"standard_name": "time",
+			"units": "days since REFERENCE_DATE_TIME",
+			"conventions": "Relative julian days with decimal part (as parts of the day)",
+			"valid_min": 0,
+			"valid_max": 36600,
+			"format": "%11.5f",
+			"FillValue_": 99999,
+			"epic_code": 601,
+			"axis": "T",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Julian day of the measurement since REFERENCE_DATE_TIME. The integer part represents the day, the decimal part represents the time of the measurement. Date and time are in universal time coordinate.",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"DAYD_EXT": {
+			"key__": "DAYD_EXT",
+					"dimension__": "DAYD_EXT",
+			"type__": "double",
+			"long_name": "DECIMAL JULIAN DAY (UTC) OF EXTERNAL DATA MEASUREMENT",
+			"standard_name": "time",
+			"units": "days since REFERENCE_DATE_TIME",
+			"conventions": "Relative julian days with decimal part (as parts of the day)",
+			"valid_min": 0,
+			"valid_max": 36600,
+			"format": "%11.5f",
+			"FillValue_": 99999,
+			"epic_code": 601,
+			"axis": "T",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Julian day of the measurement since REFERENCE_DATE_TIME. The integer part represents the day, the decimal part represents the time of the measurement. Date and time are in universal time coordinate.",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD_EXT",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"LATX": {
+			"key__": "LATX",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "LATITUDE OF EACH MEASUREMENT",
+			"standard_name": "latitude",
+			"units": "degree_north",
+			"conventions": "",
+			"valid_min": -90,
+			"valid_max": 90,
+			"format": "%+8.4f",
+			"FillValue_": 99999,
+			"epic_code": 500,
+			"axis": "Y",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Latitude of the measurement (decimal)",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"LATX_EXT": {
+			"key__": "LATX_EXT",
+					"dimension__": "DAYD_EXT",
+			"type__": "float",
+			"long_name": "LATITUDE OF EACH EXTERNAL DATA MEASUREMENT",
+			"standard_name": "latitude",
+			"units": "degree_north",
+			"conventions": "",
+			"valid_min": -90,
+			"valid_max": 90,
+			"format": "%+8.4f",
+			"FillValue_": 99999,
+			"epic_code": 500,
+			"axis": "Y",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Latitude of the measurement (decimal)",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD_EXT",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"LONX": {
+			"key__": "LONX",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "LONGITUDE OF EACH MEASUREMENT",
+			"standard_name": "longitude",
+			"units": "degree_east",
+			"conventions": "",
+			"valid_min": -180,
+			"valid_max": 180,
+			"format": "%+9.4f",
+			"FillValue_": 99999,
+			"epic_code": 501,
+			"axis": "X",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Longitude of the measurement (decimal)",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"LONX_EXT": {
+			"key__": "LONX_EXT",
+					"dimension__": "DAYD_EXT",
+			"type__": "float",
+			"long_name": "LONGITUDE OF EACH EXTERNAL DATA MEASUREMENT",
+			"standard_name": "longitude",
+			"units": "degree_east",
+			"conventions": "",
+			"valid_min": -180,
+			"valid_max": 180,
+			"format": "%+9.4f",
+			"FillValue_": 99999,
+			"epic_code": 501,
+			"axis": "X",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Longitude of the measurement (decimal)",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD_EXT",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"POSITION_QC": {
+			"key__": "POSITION_QC",
+					"dimension__": "DAYD",
+			"type__": "byte",
+			"long_name": "QUALITY FLAG OF POSITION",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 9,
+			"format": "%1d",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Quality flag applied on the position of the measurement.",
+			"default_value": 0,
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SPDC": {
+			"key__": "SPDC",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "SHIP SPEED COMPUTED FROM NAVIGATION",
+			"standard_name": "",
+			"units": "knots",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 50,
+			"format": "%6.1f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.1,
+			"comment": "Ship speed from GPS (SOG - Speed Over Ground). If SOG not available, derived from last position",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"PRES": {
+			"key__": "PRES",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "SEA PRESSURE IN TSG",
+			"standard_name": "sea_water_pressure",
+			"units": "decibar=10000 pascals",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 10,
+			"format": "%6.1f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.1,
+			"comment": "Pressure inside TSG, this is an indication that pump is working properly",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"FLOW": {
+			"key__": "FLOW",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "MEASURING FLOW IN THE TSG INLET",
+			"standard_name": "",
+			"units": "l/min",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 100,
+			"format": "%6.1f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.1,
+			"comment": "Water pump discharge measurement in the TSG inlet, this is an indication that pump is working properly",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"CNDC": {
+			"key__": "CNDC",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "ELECTRICAL CONDUCTIVITY",
+			"standard_name": "sea_water_electrical_conductivity",
+			"units": "S/meter",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 7,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Conductivity measured by TSG. This data may have been reduced with a median (recommended) or a mean",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"CNDC_STD": {
+			"key__": "CNDC_STD",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "CONDUCTIVITY STANDARD DEVIATION",
+			"standard_name": "",
+			"units": "S/meter",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 7,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Standard deviation of conductivity measured by TSG for data which have been reduced (with a mean or median) ",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"CNDC_CAL": {
+			"key__": "CNDC_CAL",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "CONDUCTIVITY CALIBRATED",
+			"standard_name": "sea_water_electrical_conductivity",
+			"units": "S/meter",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 7,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Conductivity calibrated using linearization coefficient",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"CNDC_FREQ": {
+			"key__": "CNDC_FREQ",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "SENSOR CONDUCTIVITY FREQUENCY",
+			"standard_name": "",
+			"units": "hz",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 20000,
+			"format": "%9.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Sensor conductivity frequency measured by TSG",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"CNDC_CALCOEF": {
+			"key__": "CNDC_CALCOEF",
+					"dimension__": "NCOEF_CAL",
+			"type__": "double",
+			"long_name": "CONDUCTIVITY CALIBRATION COEFFICIENTS",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Calibration coefficients are real value, date is in julian day from REFERENCE_DATE_TIME",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"CNDC_CALCOEF_CONV": {
+			"key__": "CNDC_CALCOEF_CONV",
+			"dimension__": [
+						"NCOEF_CAL",
+						"STRING8"
+			],
+			"type__": "char",
+			"long_name": "CONDUCTIVITY CALIBRATION COEFFICIENTS CONVENTION",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Calibration coefficient convention is an enumeration of coefficients name, ex: 'date','a','b','c','d','m','cpcor' or 'date','g','h','i','j','cpcor','ctcor'",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"CNDC_LINCOEF": {
+			"key__": "CNDC_LINCOEF",
+					"dimension__": "NCOEF_LIN",
+			"type__": "double",
+			"long_name": "CONDUCTIVITY LINEAR DRIFT CORRECTION COEFFICIENTS",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Calibration coefficients are real value, date is in julian day from REFERENCE_DATE_TIME",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"CNDC_LINCOEF_CONV": {
+			"key__": "CNDC_LINCOEF_CONV",
+			"dimension__": [
+						"NCOEF_LIN",
+						"STRING8"
+			],
+			"type__": "char",
+			"long_name": "CONDUCTIVITY LINEAR DRIFT CORRECTION COEFFICIENTS CONVENTION",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Calibration coefficient convention is an enumeration of coefficients name, ex: 'date','slope','offset'",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSJT": {
+			"key__": "SSJT",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "WATER JACKET TEMPERATURE",
+			"standard_name": "",
+			"units": "degree_Celsius",
+			"conventions": "",
+			"valid_min": -1.5,
+			"valid_max": 38,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Temperature within TSG or water jacket temperature. Warning, this is not ocean SST temperature. It is used for salinity computation. The reduction applied is the same as for conductivity. Temperature is ITS-90",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSJT_QC": {
+			"key__": "SSJT_QC",
+					"dimension__": "DAYD",
+			"type__": "byte",
+			"long_name": "WATER JACKET TEMPERATURE QUALITY FLAG",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 9,
+			"format": "%1d",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Quality flag applied on water jacket temperature values",
+			"default_value": 0,
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSJT_STD": {
+			"key__": "SSJT_STD",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "WATER JACKET TEMPERATURE STANDARD DEVIATION",
+			"standard_name": "",
+			"units": "degree_Celsius",
+			"conventions": "",
+			"valid_min": -1.5,
+			"valid_max": 38,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Water jacket temperature standard deviation for data wich have been reduced (with a mean or median)",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSJT_CAL": {
+			"key__": "SSJT_CAL",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "WATER JACKET TEMPERATURE CALIBRATED",
+			"standard_name": "",
+			"units": "degree_Celsius",
+			"conventions": "",
+			"valid_min": -1.5,
+			"valid_max": 38,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Water jacket temperature calibrated using linearization coefficients",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSJT_FREQ": {
+			"key__": "SSJT_FREQ",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "WATER JACKET SENSOR TEMPERATURE FREQUENCY",
+			"standard_name": "",
+			"units": "hz",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 20000,
+			"format": "%9.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Frequency of water jacket temperature sensor ",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSJT_CALCOEF": {
+			"key__": "SSJT_CALCOEF",
+					"dimension__": "NCOEF_CAL",
+			"type__": "double",
+			"long_name": "TEMPERATURE CALIBRATION COEFFICIENTS",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Calibration coefficients are real value, date is in julian day from REFERENCE_DATE_TIME",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSJT_CALCOEF_CONV": {
+			"key__": "SSJT_CALCOEF_CONV",
+			"dimension__": [
+						"NCOEF_CAL",
+						"STRING8"
+			],
+			"type__": "char",
+			"long_name": "TEMPERATURE CALIBRATION COEFFICIENTS CONVENTION",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Calibration coefficient convention is an enumeration of coefficients name, ex: 'date','a','b','c','d','f0' or 'date','g','h','i','j','f0'",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSJT_LINCOEF": {
+			"key__": "SSJT_LINCOEF",
+					"dimension__": "NCOEF_LIN",
+			"type__": "double",
+			"long_name": "TEMPERATURE LINEAR DRIFT CORRECTION COEFFICIENTS",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Calibration coefficients are real value, date is in julian day from REFERENCE_DATE_TIME",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSJT_LINCOEF_CONV": {
+			"key__": "SSJT_LINCOEF_CONV",
+			"dimension__": [
+						"NCOEF_LIN",
+						"STRING8"
+			],
+			"type__": "char",
+			"long_name": "TEMPERATURE LINEAR DRIFT CORRECTION COEFFICIENTS CONVENTION",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Calibration coefficient convention is an enumeration of coefficients name, ex: 'date','slope','offset'",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSJT_ADJUSTED": {
+			"key__": "SSJT_ADJUSTED",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "WATER JACKET TEMPERATURE ADJUSTED",
+			"standard_name": "",
+			"units": "degree_Celsius",
+			"conventions": "",
+			"valid_min": -1.5,
+			"valid_max": 38,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Adjusted water jacket temperature with external data (ARGO,CTD,XBT,...)",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSJT_ADJUSTED_ERROR": {
+			"key__": "SSJT_ADJUSTED_ERROR",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "ERROR ON ADJUSTED WATER JACKET TEMPERATURE",
+			"standard_name": "",
+			"units": "degree_Celsius",
+			"conventions": "",
+			"valid_min": -1.5,
+			"valid_max": 38,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Error on adjusted water jacket temperature with external data",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSJT_ADJUSTED_QC": {
+			"key__": "SSJT_ADJUSTED_QC",
+					"dimension__": "DAYD",
+			"type__": "byte",
+			"long_name": "WATER JACKET TEMPERATURE QUALITY FLAG",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 9,
+			"format": "%1d",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Quality flag applied on adjusted water jacket temperature values",
+			"default_value": 0,
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSJT_ADJUSTED_HIST": {
+			"key__": "SSJT_ADJUSTED_HIST",
+					"dimension__": "STRING256",
+			"type__": "char",
+			"long_name": "WATER JACKET TEMPERATURE ADJUSTED PROCESSING HISTORY",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Water jacket temperature inside TSG adjusted processing history",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSPS": {
+			"key__": "SSPS",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "SEA SURFACE SALINITY",
+			"standard_name": "sea_surface_salinity",
+			"units": "",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 40,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Sea Surface Salinity (SSS) deduced from conductivity and water jacket temperature. This is the Ocean surface salinity. units = PSS.78 (Practical Salinity Scale)",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSPS_QC": {
+			"key__": "SSPS_QC",
+					"dimension__": "DAYD",
+			"type__": "byte",
+			"long_name": "SEA SURFACE SALINITY QUALITY FLAG",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 9,
+			"format": "%1d",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Quality flag applied on sea surface salinity values",
+			"default_value": 0,
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSPS_STD": {
+			"key__": "SSPS_STD",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "SEA SURFACE SALINITY STANDARD DEVIATION",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 40,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Standard deviation of sea surface salinity measured by TSG in case when CNDC_STD not available",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSPS_CAL": {
+			"key__": "SSPS_CAL",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "SEA SURFACE SALINITY CALIBRATED",
+			"standard_name": "sea_surface_salinity",
+			"units": "",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 40,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Sea surface salinity calibrated deduced from conductivity and water jacket temperature",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSPS_ADJUSTED": {
+			"key__": "SSPS_ADJUSTED",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "SEA SURFACE SALINITY ADJUSTED",
+			"standard_name": "sea_surface_salinity",
+			"units": "",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 40,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Sea surface salinity adjusted with external data (ARGO,CTD,XBT,...)",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSPS_ADJUSTED_ERROR": {
+			"key__": "SSPS_ADJUSTED_ERROR",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "ERROR ON SEA SURFACE SALINITY ADJUSTED",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 40,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Error on sea surface salinity adjusted with external data",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSPS_ADJUSTED_QC": {
+			"key__": "SSPS_ADJUSTED_QC",
+					"dimension__": "DAYD",
+			"type__": "byte",
+			"long_name": "SEA SURFACE SALINITY ADJUSTED QUALITY FLAG",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 9,
+			"format": "%1d",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Quality flag applied on adjusted  sea surface salinity",
+			"default_value": 0,
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSPS_ADJUSTED_HIST": {
+			"key__": "SSPS_ADJUSTED_HIST",
+					"dimension__": "STRING256",
+			"type__": "char",
+			"long_name": "SEA SURFACE SALINITY ADJUSTED PROCESSING HISTORY",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Sea surface salinity adjusted processing history",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSPS_DEPH": {
+			"key__": "SSPS_DEPH",
+					"dimension__": "N1",
+			"type__": "float",
+			"long_name": "NOMINAL DEPTH OF WATER INTAKE FOR SALINITY MEASUREMENT",
+			"standard_name": "",
+			"units": "meter",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 100,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.1,
+			"comment": "",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSPS_DEPH_MIN": {
+			"key__": "SSPS_DEPH_MIN",
+					"dimension__": "N1",
+			"type__": "float",
+			"long_name": "MINIMUM DEPTH OF WATER INTAKE FOR SALINITY MEASUREMENT",
+			"standard_name": "",
+			"units": "meter",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 100,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.1,
+			"comment": "",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSPS_DEPH_MAX": {
+			"key__": "SSPS_DEPH_MAX",
+					"dimension__": "N1",
+			"type__": "float",
+			"long_name": "MAXIMUM DEPTH OF WATER INTAKE FOR SALINITY MEASUREMENT",
+			"standard_name": "",
+			"units": "meter",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 100,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.1,
+			"comment": "",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSTP": {
+			"key__": "SSTP",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "SEA SURFACE TEMPERATURE",
+			"standard_name": "sea_surface_temperature",
+			"units": "degree_Celsius",
+			"conventions": "",
+			"valid_min": -1.5,
+			"valid_max": 38,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Sea Surface Temperature (SST) measured at intake with external instrument (TINT_TYPE, TINT_NUMBER). This is ocean surface temperature",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSTP_QC": {
+			"key__": "SSTP_QC",
+					"dimension__": "DAYD",
+			"type__": "byte",
+			"long_name": "SEA SURFACE TEMPERATURE QUALITY FLAG",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 9,
+			"format": "%1d",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Quality flag applied on sea surface temperature values",
+			"default_value": 0,
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSTP_CAL": {
+			"key__": "SSTP_CAL",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "SEA SURFACE TEMPERATURE CALIBRATED",
+			"standard_name": "sea_surface_temperature",
+			"units": "degree_Celsius",
+			"conventions": "",
+			"valid_min": -1.5,
+			"valid_max": 38,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Sea surface temperature calibrated",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSTP_FREQ": {
+			"key__": "SSTP_FREQ",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "SEA SURFACE TEMPERATURE FREQUENCY",
+			"standard_name": "",
+			"units": "hz",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 20000,
+			"format": "%9.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Frequency of external temperature sensor, used for SST measurement",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSTP_ADJUSTED": {
+			"key__": "SSTP_ADJUSTED",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "SEA SURFACE TEMPERATURE ADJUSTED",
+			"standard_name": "sea_surface_temperature",
+			"units": "degree_Celsius",
+			"conventions": "",
+			"valid_min": -1.5,
+			"valid_max": 38,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Sea surface temperature adjusted",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSTP_ADJUSTED_ERROR": {
+			"key__": "SSTP_ADJUSTED_ERROR",
+					"dimension__": "DAYD",
+			"type__": "float",
+			"long_name": "ERROR ON SEA SURFACE TEMPERATURE ADJUSTED",
+			"standard_name": "",
+			"units": "degree_Celsius",
+			"conventions": "",
+			"valid_min": -1.5,
+			"valid_max": 38,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Error on sea surface temperature adjusted",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSTP_ADJUSTED_QC": {
+			"key__": "SSTP_ADJUSTED_QC",
+					"dimension__": "DAYD",
+			"type__": "byte",
+			"long_name": "SEA SURFACE TEMPERATURE ADJUSTED QUALITY FLAG",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 9,
+			"format": "%1d",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Quality flag applied on sea surface temperature adjusted",
+			"default_value": 0,
+			"coordinate": "DAYD",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSTP_ADJUSTED_HIST": {
+			"key__": "SSTP_ADJUSTED_HIST",
+					"dimension__": "STRING256",
+			"type__": "char",
+			"long_name": "SEA SURFACE TEMPERATURE ADJUSTED PROCESSING HISTORY",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Sea surface temperature adjusted processing history",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSTP_DEPH": {
+			"key__": "SSTP_DEPH",
+					"dimension__": "N1",
+			"type__": "float",
+			"long_name": "NOMINAL DEPTH OF WATER INTAKE FOR TEMPERATURE MEASUREMENT",
+			"standard_name": "",
+			"units": "meter",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 100,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.1,
+			"comment": "",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSTP_DEPH_MIN": {
+			"key__": "SSTP_DEPH_MIN",
+					"dimension__": "N1",
+			"type__": "float",
+			"long_name": "MINIMUM DEPTH OF WATER INTAKE FOR TEMPERATURE MEASUREMENT",
+			"standard_name": "",
+			"units": "meter",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 100,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.1,
+			"comment": "",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSTP_DEPH_MAX": {
+			"key__": "SSTP_DEPH_MAX",
+					"dimension__": "N1",
+			"type__": "float",
+			"long_name": "MAXIMUM DEPTH OF WATER INTAKE FOR TEMPERATURE MEASUREMENT",
+			"standard_name": "",
+			"units": "meter",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 100,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.1,
+			"comment": "",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSTP_CALCOEF": {
+			"key__": "SSTP_CALCOEF",
+					"dimension__": "NCOEF_CAL",
+			"type__": "double",
+			"long_name": "TEMPERATURE CALIBRATION COEFFICIENTS",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Calibration coefficients are real value, date is in julian day from REFERENCE_DATE_TIME",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSTP_CALCOEF_CONV": {
+			"key__": "SSTP_CALCOEF_CONV",
+			"dimension__": [
+						"NCOEF_CAL",
+						"STRING8"
+			],
+			"type__": "char",
+			"long_name": "TEMPERATURE CALIBRATION COEFFICIENTS CONVENTION",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Calibration coefficient convention is an enumeration of coefficients name, ex: 'date','a','b','c','d','f0' or 'date','g','h','i','j','f0'",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSTP_LINCOEF": {
+			"key__": "SSTP_LINCOEF",
+					"dimension__": "NCOEF_LIN",
+			"type__": "double",
+			"long_name": "TEMPERATURE LINEAR DRIFT CORRECTION COEFFICIENTS",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Calibration coefficients are real value, date is in julian day from REFERENCE_DATE_TIME",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSTP_LINCOEF_CONV": {
+			"key__": "SSTP_LINCOEF_CONV",
+			"dimension__": [
+						"NCOEF_LIN",
+						"STRING8"
+			],
+			"type__": "char",
+			"long_name": "TEMPERATURE LINEAR DRIFT CORRECTION COEFFICIENTS CONVENTION",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Calibration coefficient convention is an enumeration of coefficients name, ex: 'date','slope','offset'",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSTP_EXT": {
+			"key__": "SSTP_EXT",
+					"dimension__": "DAYD_EXT",
+			"type__": "float",
+			"long_name": "SEA SURFACE TEMPERATURE FROM EXTERNAL DATA",
+			"standard_name": "sea_surface_temperature",
+			"units": "degree_Celsius",
+			"conventions": "",
+			"valid_min": -1.5,
+			"valid_max": 38,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Sea Surface Temperature (SST) from external data instrument (ARGO,CTD, XBT)",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD_EXT",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSTP_EXT_QC": {
+			"key__": "SSTP_EXT_QC",
+					"dimension__": "DAYD_EXT",
+			"type__": "byte",
+			"long_name": "SEA SURFACE TEMPERATURE FROM EXTERNAL DATA QUALITY FLAG",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 9,
+			"format": "%1d",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Quality flag applied on external sea surface temperature data values",
+			"default_value": 0,
+			"coordinate": "DAYD_EXT",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSTP_EXT_TYPE": {
+			"key__": "SSTP_EXT_TYPE",
+			"dimension__": [
+						"DAYD_EXT",
+						"STRING4"
+			],
+			"type__": "char",
+			"long_name": "TYPE OF EXTERNAL SEA SURFACE TEMPERATURE  DATA ORIGIN",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Exemple: ARGO,CTD,XBT,...",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD_EXT",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSPS_EXT": {
+			"key__": "SSPS_EXT",
+					"dimension__": "DAYD_EXT",
+			"type__": "float",
+			"long_name": "SEA SURFACE SALINITY FROM EXTERNAL DATA",
+			"standard_name": "sea_surface_salinity",
+			"units": "",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 40,
+			"format": "%6.3f",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Sea Surface Salinity (SSS) from external data instrument (WS,ARGO,CTD, XBT)",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD_EXT",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSPS_EXT_QC": {
+			"key__": "SSPS_EXT_QC",
+					"dimension__": "DAYD_EXT",
+			"type__": "byte",
+			"long_name": "SEA SURFACE SALINITY FROM EXTERNAL DATA QUALITY FLAG",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": 0,
+			"valid_max": 9,
+			"format": "%1d",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Quality flag applied on external sea surface salinity data values ",
+			"default_value": 0,
+			"coordinate": "DAYD_EXT",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSPS_EXT_TYPE": {
+			"key__": "SSPS_EXT_TYPE",
+			"dimension__": [
+						"DAYD_EXT",
+						"STRING4"
+			],
+			"type__": "char",
+			"long_name": "TYPE OF EXTERNAL SEA SURFACE SALINITY DATA ORIGIN",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Exemple: WS (Water Sample),ARGO,CTD,XBT,...",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD_EXT",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSPS_EXT_ANALDATE": {
+			"key__": "SSPS_EXT_ANALDATE",
+			"dimension__": [
+						"DAYD_EXT",
+						"STRING14"
+			],
+			"type__": "char",
+			"long_name": "DATE OF WATER SAMPLE SURFACE SALINITY ANALYSIS",
+			"standard_name": "",
+			"units": "",
+			"conventions": "yyyymmddHHMMSS",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Date of sea surface salinity water sample analysis",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD_EXT",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SSPS_EXT_BOTTLE": {
+			"key__": "SSPS_EXT_BOTTLE",
+			"dimension__": [
+						"DAYD_EXT",
+						"STRING4"
+			],
+			"type__": "char",
+			"long_name": "SEA SURFACE SALINITY BOTTLES NUMBERS",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "The ID numbers of the sea surface salinity sampling bottles",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "DAYD_EXT",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		}
+	},
+	"ATTRIBUTES": {
+		"TITLE": {
+			"key__": "TITLE",
+			"name": "TITLE",
+			"conventions": "",
+			"uicontrolType": "text",
+			"string": "TSG GOSUD ",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.1000000015,
+			"height": 0.01999999955,
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "A description of the dataset",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"CYCLE_MESURE": {
+			"key__": "CYCLE_MESURE",
+			"name": "CYCLE MESURE:",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Cruise name or travel name. Example : EGEE6 or PAST0601",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"PLATFORM_NAME": {
+			"key__": "PLATFORM_NAME",
+			"name": "PLATFORM NAME:",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Ship name. Example : Pourquoi Pas ?",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"PROJECT_NAME": {
+			"key__": "PROJECT_NAME",
+			"name": "PROJECT NAME:",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "SO-SSS|CORIOLIS|IRD|SURVOSTRAL|TSG_RECHERCHE",
+			"value": 1,
+			"length": 0.1000000015,
+			"height": 0.01999999955,
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Name of project which operates the TSG line. Example: SO-SSS",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SHIP_CALL_SIGN": {
+			"key__": "SHIP_CALL_SIGN",
+			"name": "SHIP CALL SIGN:",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Ship call sign. Example : FABB",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SHIP_MMSI": {
+			"key__": "SHIP_MMSI",
+			"name": "SHIP MMSI:",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Ship MMSI (ASN) number. Example : 227 222 00",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"DATE_TSG": {
+			"key__": "DATE_TSG",
+			"name": "TSG INSTALL DATE",
+			"conventions": "yyyymmddHHMMSS",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Date of TSG installation, format : yyyymmddDDHHMMSS",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"TYPE_TSG": {
+			"key__": "TYPE_TSG",
+			"name": "TYPE TSG:",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "SBE21|SBE45|NKE-STPS |UNKNO",
+			"value": 1,
+			"length": 0.1000000015,
+			"height": 0.01999999955,
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Thermosalinograph model number. Example : SBE21 or SBE45",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"NUMBER_TSG": {
+			"key__": "NUMBER_TSG",
+			"name": "NUMBER TSG:",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Thermosalinograph serial number. Example: 2250",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"DATE_TINT": {
+			"key__": "DATE_TINT",
+			"name": "TINT INSTALL DATE",
+			"conventions": "yyyymmddHHMMSS",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Date of TINT installation, format: yyyymmddHHMMSS",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"TYPE_TINT": {
+			"key__": "TYPE_TINT",
+			"name": "TYPE TINT:",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "SBE38|SBE3S|UNKNO|NA",
+			"value": 1,
+			"length": 0.1000000015,
+			"height": 0.01999999955,
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Temperature sensor at intake. Example: SBE38",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"NUMBER_TINT": {
+			"key__": "NUMBER_TINT",
+			"name": "NUMBER TINT:",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Intake temperature sensor serial number. Example: 3940",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"DATA_TYPE": {
+			"key__": "DATA_TYPE",
+			"name": "DATA TYPE:",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "TRAJECTORY|PROFILE|TIME-SERIES",
+			"value": 1,
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Describe data type contained in file. Example: TRAJECTORY, PROFILE or TIME-SERIES",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"DATA_MODE": {
+			"key__": "DATA_MODE",
+			"name": "DATA MODE:",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "R|D",
+			"value": 1,
+			"length": 0.1000000015,
+			"height": 0.01999999955,
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Indicate if the file contains real time or delayed mode data. R : real time data, D : delayed mode data",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SAMPLING_PERIOD": {
+			"key__": "SAMPLING_PERIOD",
+			"name": "SAMPLING PERIOD:",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "300",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.05000000075,
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Sampling period in seconds: 6 to 3600",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"DATE_START": {
+			"key__": "DATE_START",
+			"name": "DATE_START:",
+			"conventions": "yyyymmddHHMMSS",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Date of first measurements (UTC), format: yyyymmddHHMMSS",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"DATE_END": {
+			"key__": "DATE_END",
+			"name": "DATE END:",
+			"conventions": "yyyymmddHHMMSS",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Date of last measurements (UTC), format: yyyymmddHHMMSS",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"SOUTH_LATX": {
+			"key__": "SOUTH_LATX",
+			"name": "SOUTH LATX:",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "South limit of measurements",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"NORTH_LATX": {
+			"key__": "NORTH_LATX",
+			"name": "NORTH LATX:",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "North limit of measurements",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"WEST_LONX": {
+			"key__": "WEST_LONX",
+			"name": "WEST LONX:",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "West limit of measurements",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"EAST_LONX": {
+			"key__": "EAST_LONX",
+			"name": "EAST LONX:",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "East limit of measurements",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"FORMAT_VERSION": {
+			"key__": "FORMAT_VERSION",
+			"name": "FORMAT VERSION:",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "3.0",
+			"value": 1,
+			"length": 0.1000000015,
+			"height": 0.01999999955,
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "GOSUD file format version, example: 3.0",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"CONVENTIONS": {
+			"key__": "CONVENTIONS",
+			"name": "CONVENTIONS:",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "CF1.4, GOSUD 3.0",
+			"value": 1,
+			"length": 0.1000000015,
+			"height": 0.01999999955,
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "GOSUD NetCDF file format conventions, example: CF1.4, GOSUD 3.0",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"DATE_CREATION": {
+			"key__": "DATE_CREATION",
+			"name": "DATE CREATION:",
+			"conventions": "yyyymmddHHMMSS",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Date and time (UTC) of creation of this file, format: yyyymmddHHMMSS",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"DATE_UPDATE": {
+			"key__": "DATE_UPDATE",
+			"name": "DATE UPDATE:",
+			"conventions": "yyyymmddHHMMSS",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Date and time (UTC) of update of this file, format: yyyymmddHHMMSS",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"DATA_RESTRICTIONS": {
+			"key__": "DATA_RESTRICTIONS",
+			"name": "DATA RESTRICTIONS:",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "NONE",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Restriction on use for these data, example: NONE",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"CITATION": {
+			"key__": "CITATION",
+			"name": "CITATION:",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "left",
+			"comment": "This citation should be used for publications. Example : \"These data were collected and made freely available by the International GOSUD Project and the national programmes that contribute to it.\"",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"COMMENT": {
+			"key__": "COMMENT",
+			"name": "COMMENT:",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Comment.",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"PI_NAME": {
+			"key__": "PI_NAME",
+			"name": "PI NAME:",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "Denis Diverres|David Varillon|Thierry Delcroix|Yves Gouriou|Bernard Bourles|Gilles Reverdin|Rosemary Morrow|Magali Krieger|Julien Perrier|Stephane Jacquin|Fabienne Gaillard",
+			"value": 1,
+			"length": 0.1000000015,
+			"height": 0.01999999955,
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Name of the principal investigator in charge of the TSG line.",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"DATA_CENTRE": {
+			"key__": "DATA_CENTRE",
+			"name": "DATA CENTRE:",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"height": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Code for data center (2 char)",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"DATA_ACQUISITION": {
+			"key__": "DATA_ACQUISITION",
+			"name": "DATA ACQUISITION:",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "IRD|GENAVIR|SHOM|CNRS|IPEV|IFREMER|CANOE|OCEANOSCIENTIFIC",
+			"value": 1,
+			"length": 0.1000000015,
+			"height": 0.01999999955,
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Acquisition data centre, example: SHOM, IRD, GENAVIR, CNRS,…",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"PROCESSING_CENTRE": {
+			"key__": "PROCESSING_CENTRE",
+			"name": "PROCESSING CENTRE:",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "SO-SSS|CORIOLIS|IRD|SURVOSTRAL|TSG_RECHERCHE",
+			"value": 1,
+			"length": 0.1000000015,
+			"height": 0.01999999955,
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Processing data centre, example: SO-SSS, CORIOLIS, TSG_RECHERCHE, ...",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"PROCESSING_STATES": {
+			"key__": "PROCESSING_STATES",
+			"name": "PROCESSING STATES:",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "0A|0B|1A|1B|1C|2B+|2C+|3B|3C",
+			"value": 1,
+			"length": 0.1000000015,
+			"height": 0.01999999955,
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "0A: RAW DATA|1A: CLIMATOLOGY CONTROL|1B: APPLICATION  OF QUALITY CODE AFTER VISUAL INSPECTION|1C: VALIDED BY PI|2C+: CALIBRATED DATA VALIDATED BY PI",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"WS_TYPE": {
+			"key__": "WS_TYPE",
+			"name": "WATER SAMPLE TYPE:",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "ARGO|CTD|OSIL|UNKNO|WS|XBT|XCTD|NA",
+			"value": 8,
+			"length": 0.1000000015,
+			"height": 0.01999999955,
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Model of water sample. Default: NA, Not Available, Example: OSIL",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"TYPE_POSITION": {
+			"key__": "TYPE_POSITION",
+			"name": "TYPE_POSITION:",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "GPS|GPS DIFFERENTIAL|ARGOS|INTERPOLATE|MANUAL|NONE|UNKNOW",
+			"value": 1,
+			"length": 0.1000000015,
+			"height": 0.01999999955,
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "right",
+			"comment": "Description of navigation system. Example: GPS, GPS DIFFERENTIAL, ARGOS, INTERPOLATE, MANUAL, NONE, UNKNOW",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"HISTORY": {
+			"key__": "HISTORY",
+			"name": "HISTORY",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.150000006,
+			"height": 0.01999999955,
+			"line": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"horizontalAlignment": "left",
+			"comment": "Provides an audit trail for modifications to the original data",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		}
+	},
+	"QUALITY": {
+		"NO_CONTROL": {
+			"key__": "NO_CONTROL",
+			"label": "No control",
+			"code": 0,
+			"color": "k",
+			"state": "on",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"GOOD": {
+			"key__": "GOOD",
+			"label": "Good",
+			"code": 1,
+			"color": "b",
+			"state": "on",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"PROBABLY_GOOD": {
+			"key__": "PROBABLY_GOOD",
+			"label": "Probably Good",
+			"code": 2,
+			"color": "g",
+			"state": "on",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"PROBABLY_BAD": {
+			"key__": "PROBABLY_BAD",
+			"label": "Probably bad",
+			"code": 3,
+			"color": "m",
+			"state": "on",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"BAD": {
+			"key__": "BAD",
+			"label": "Bad",
+			"code": 4,
+			"color": "r",
+			"state": "on",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"VALUE_CHANGED": {
+			"key__": "VALUE_CHANGED",
+			"label": "Value changed",
+			"code": 5,
+			"color": "c",
+			"state": "off",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"HARBOUR": {
+			"key__": "HARBOUR",
+			"label": "Harbour",
+			"code": 6,
+			"color": "c",
+			"state": "on",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"NOT_USED": {
+			"key__": "NOT_USED",
+			"label": "Not used",
+			"code": 7,
+			"color": "w",
+			"state": "off",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"INTERPOLATED_VALUE": {
+			"key__": "INTERPOLATED_VALUE",
+			"label": "Interpolated value",
+			"code": 8,
+			"color": "b",
+			"state": "off",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		},
+		"MISSING_VALUE": {
+			"key__": "MISSING_VALUE",
+			"label": "Missing value",
+			"code": 9,
+			"color": "k",
+			"state": "off",
+			"data__": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			}
+		}
+	}
+}

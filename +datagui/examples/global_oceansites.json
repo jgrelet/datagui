@@ -1,0 +1,1989 @@
+{
+	"Dimensions": {
+		"TIME": {
+			"key__": "TIME",
+			"dimlen": {
+				"_ArrayType_": "int32",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"unlimited": 0
+		},
+		"DEPTH": {
+			"key__": "DEPTH",
+			"dimlen": {
+				"_ArrayType_": "int32",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"unlimited": 0
+		},
+		"LATITUDE": {
+			"key__": "LATITUDE",
+			"dimlen": {
+				"_ArrayType_": "int32",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"unlimited": 0
+		},
+		"LONGITUDE": {
+			"key__": "LONGITUDE",
+			"dimlen": {
+				"_ArrayType_": "int32",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"unlimited": 0
+		},
+		"POSITION": {
+			"key__": "POSITION",
+			"dimlen": {
+				"_ArrayType_": "int32",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"unlimited": 0
+		},
+		"STRING256": {
+			"key__": "STRING256",
+			"dimlen": 256,
+			"unlimited": 0
+		},
+		"STRING14": {
+			"key__": "STRING14",
+			"dimlen": 14,
+			"unlimited": 0
+		},
+		"STRING8": {
+			"key__": "STRING8",
+			"dimlen": 8,
+			"unlimited": 0
+		},
+		"STRING4": {
+			"key__": "STRING4",
+			"dimlen": 4,
+			"unlimited": 0
+		},
+		"N1": {
+			"key__": "N1",
+			"dimlen": 1,
+			"unlimited": 0
+		}
+	},
+	"Variables": {
+		"REFERENCE_DATE_TIME": {
+			"key__": "REFERENCE_DATE_TIME",
+					"dimension__": "STRING14",
+			"type__": "char",
+			"long_name": "ORIGIN OF TIME",
+			"standard_name": "",
+			"units": "",
+			"conventions": "yyyymmddHHMMSS",
+			"positive": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Reference date for julian days origin",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"DATE": {
+			"key__": "DATE",
+			"dimension__": [
+						"TIME",
+						"STRING14"
+			],
+			"type__": "char",
+			"long_name": "DATE OF MAINS INSTRUMENT MEASUREMENT",
+			"standard_name": "",
+			"units": "",
+			"conventions": "yyyymmddHHMMSS",
+			"positive": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "T",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "This is the original data describing the date, it must not be lost",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"TIME": {
+			"key__": "TIME",
+					"dimension__": "TIME",
+			"type__": "double",
+			"long_name": "DECIMAL JULIAN DAY (UTC) OF EACH MEASUREMENT",
+			"standard_name": "time",
+			"units": "days since 1950-01-01T00:00:00Z",
+			"conventions": "Relative julian days with decimal part (as parts of the day) from REFERENCE_DATE_TIME",
+			"positive": "",
+			"valid_min": 0,
+			"valid_max": 90000,
+			"format": "%9.5lf",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": 601,
+			"axis": "T",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Julian day of the measurement",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"TIME_QC": {
+			"key__": "TIME_QC",
+					"dimension__": "TIME",
+			"type__": "byte",
+			"long_name": "QUALITY FLAG OF TIME",
+			"standard_name": "",
+			"units": "",
+			"conventions": "OceanSITES reference table 2",
+			"positive": "",
+			"valid_min": 0,
+			"valid_max": 9,
+			"format": "%1d",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Quality flag for each TIME value.",
+			"default_value": 0,
+			"coordinate": "",
+			"flag_values": "0, 1, 2, 3, 4, 5, 7, 8, 9",
+			"flag_meanings": "no_qc_performed, good_data, probably_good_data, bad_data_that_are_potentially_correctable, bad_data, value_changed, not_used, nominal_value, interpolated_value, missing_value"
+		},
+		"LATITUDE": {
+			"key__": "LATITUDE",
+					"dimension__": "LATITUDE",
+			"type__": "float",
+			"long_name": "LATITUDE OF THE MEASUREMENT",
+			"standard_name": "latitude",
+			"units": "degree_north",
+			"conventions": "",
+			"positive": "",
+			"valid_min": -90,
+			"valid_max": 90,
+			"format": "%+8.4lf",
+			"FillValue_": 99999,
+			"epic_code": 500,
+			"axis": "Y",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Latitude of the measurement (decimal)",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "LATITUDE",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"LONGITUDE": {
+			"key__": "LONGITUDE",
+					"dimension__": "LONGITUDE",
+			"type__": "float",
+			"long_name": "LONGITUDE OF THE MEASUREMENT",
+			"standard_name": "longitude",
+			"units": "degree_east",
+			"conventions": "",
+			"positive": "",
+			"valid_min": -180,
+			"valid_max": 180,
+			"format": "%+9.4lf",
+			"FillValue_": 99999,
+			"epic_code": 501,
+			"axis": "X",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Longitude of the measurement (decimal)",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "LONGITUDE",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"POSITION_QC": {
+			"key__": "POSITION_QC",
+					"dimension__": "POSITION",
+			"type__": "byte",
+			"long_name": "QUALITY FLAG OF POSITION",
+			"standard_name": "",
+			"units": "",
+			"conventions": "OceanSITES reference table 2",
+			"positive": "",
+			"valid_min": 0,
+			"valid_max": 9,
+			"format": "%1d",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Quality flag for each LATITUDE and LONGITUDE value.",
+			"default_value": 0,
+			"coordinate": "",
+			"flag_values": "0, 1, 2, 3, 4, 5, 7, 8, 9",
+			"flag_meanings": "no_qc_performed, good_data, probably_good_data, bad_data_that_are_potentially_correctable, bad_data, value_changed, not_used, nominal_value, interpolated_value, missing_value"
+		},
+		"x_station_x": {
+			"key__": "x_station_x",
+					"dimension__": "TIME",
+			"type__": "int",
+			"long_name": "STATION NUMBER",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"positive": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "%4d",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Station number, a station could be have more than one cast",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"x_cast_x": {
+			"key__": "x_cast_x",
+					"dimension__": "TIME",
+			"type__": "int",
+			"long_name": "CAST NUMBER",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"positive": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "%4d",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Cast number",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"x_DEPTH_x": {
+			"key__": "x_DEPTH_x",
+			"dimension__": [
+						"TIME",
+						"DEPTH"
+			],
+			"type__": "float",
+			"long_name": "",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"positive": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Number of DEPTH measurments",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"x_DEPTH_x_QC": {
+			"key__": "x_DEPTH_x_QC",
+			"dimension__": [
+						"TIME",
+						"DEPTH"
+			],
+			"type__": "byte",
+			"long_name": "QUALITY FLAG",
+			"standard_name": "",
+			"units": "",
+			"conventions": "OceanSITES reference table 2",
+			"positive": "",
+			"valid_min": 0,
+			"valid_max": 9,
+			"format": "%1d",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Quality flag for each DEPTH value",
+			"default_value": 0,
+			"coordinate": "",
+			"flag_values": "0, 1, 2, 3, 4, 5, 7, 8, 9",
+			"flag_meanings": "no_qc_performed, good_data, probably_good_data, bad_data_that_are_potentially_correctable, bad_data, value_changed, not_used, nominal_value, interpolated_value, missing_value"
+		},
+		"x_variable_x": {
+			"key__": "x_variable_x",
+			"dimension__": [
+						"TIME",
+						"DEPTH"
+			],
+			"type__": "float",
+			"long_name": "",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"positive": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "x_comment_x",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"x_variable_x_QC": {
+			"key__": "x_variable_x_QC",
+			"dimension__": [
+						"TIME",
+						"DEPTH"
+			],
+			"type__": "byte",
+			"long_name": "QUALITY FLAG",
+			"standard_name": "",
+			"units": "",
+			"conventions": "OceanSITES reference table 2",
+			"positive": "",
+			"valid_min": 0,
+			"valid_max": 9,
+			"format": "%1d",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Quality flag for each x_comment_x value",
+			"default_value": 0,
+			"coordinate": "",
+			"flag_values": "0, 1, 2, 3, 4, 5, 7, 8, 9",
+			"flag_meanings": "no_qc_performed, good_data, probably_good_data, bad_data_that_are_potentially_correctable, bad_data, value_changed, not_used, nominal_value, interpolated_value, missing_value"
+		},
+		"x_variable_x_CAL": {
+			"key__": "x_variable_x_CAL",
+			"dimension__": [
+						"TIME",
+						"DEPTH"
+			],
+			"type__": "float",
+			"long_name": "x_long_name_x CALIBRATED",
+			"standard_name": "x_standard_name_x",
+			"units": "x_units_x",
+			"conventions": "",
+			"positive": "",
+			"valid_min": 99999,
+			"valid_max": 99999,
+			"format": "%6.3lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "x_comment_x calibrated",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"x_variable_x_ADJUSTED": {
+			"key__": "x_variable_x_ADJUSTED",
+			"dimension__": [
+						"TIME",
+						"DEPTH"
+			],
+			"type__": "float",
+			"long_name": "x_long_name_x ADJUSTED",
+			"standard_name": "x_standard_name_x",
+			"units": "x_units_x",
+			"conventions": "",
+			"positive": "",
+			"valid_min": 99999,
+			"valid_max": 99999,
+			"format": "%6.3lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Adjusted x_comment_x",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"x_variable_x_ADJUSTED_ERROR": {
+			"key__": "x_variable_x_ADJUSTED_ERROR",
+			"dimension__": [
+						"TIME",
+						"DEPTH"
+			],
+			"type__": "float",
+			"long_name": "ERROR ON x_long_name_x ADJUSTED",
+			"standard_name": "x_standard_name_x",
+			"units": "x_units_x",
+			"conventions": "",
+			"positive": "",
+			"valid_min": 99999,
+			"valid_max": 99999,
+			"format": "%6.3lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Error on adjusted x_comment_x",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"x_variable_x_ADJUSTED_QC": {
+			"key__": "x_variable_x_ADJUSTED_QC",
+			"dimension__": [
+						"TIME",
+						"DEPTH"
+			],
+			"type__": "byte",
+			"long_name": "QUALITY FLAG",
+			"standard_name": "",
+			"units": "",
+			"conventions": "OceanSITES reference table 2",
+			"positive": "",
+			"valid_min": 0,
+			"valid_max": 9,
+			"format": "%1d",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Quality flag applied on adjusted x_comment_x",
+			"default_value": 0,
+			"coordinate": "",
+			"flag_values": "0, 1, 2, 3, 4, 5, 7, 8, 9",
+			"flag_meanings": "no_qc_performed, good_data, probably_good_data, bad_data_that_are_potentially_correctable, bad_data, value_changed, not_used, nominal_value, interpolated_value, missing_value"
+		},
+		"x_variable_x_ADJUSTED_HIST": {
+			"key__": "x_variable_x_ADJUSTED_HIST",
+					"dimension__": "STRING256",
+			"type__": "char",
+			"long_name": "ADJUSTED x_long_name_x PROCESSING HISTORY",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"positive": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Adjusted x_comment_x processing history",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "",
+			"flag_values": "",
+			"flag_meanings": ""
+		}
+	},
+	"Attibutes": {
+		"cycle_mesure": {
+			"key__": "cycle_mesure",
+			"name": "cycle_mesure :",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Cruise or travel name"
+		},
+		"platform_name": {
+			"key__": "platform_name",
+			"name": "platform_name :",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Ship or platform name"
+		},
+		"call_sign": {
+			"key__": "call_sign",
+			"name": "call_sign :",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Call sign number"
+		},
+		"wmo_platform_code": {
+			"key__": "wmo_platform_code",
+			"name": "wmo_platform_code :",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "WMO (World Meteorological Organization) identifier (unique)"
+		},
+		"project_name": {
+			"key__": "project_name",
+			"name": "project_name :",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Name of project which operates the program, ex: ORE-SSS"
+		},
+		"platform_code": {
+			"key__": "platform_code",
+			"name": "plateform_code",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Platform unique code within OceanSITES project"
+		},
+		"type_instrument": {
+			"key__": "type_instrument",
+			"name": "type_instrument :",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "CTD|XBT|ADCP|METEO|TSG|COASTAL",
+			"value": 1,
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Instrument model number"
+		},
+		"type_position": {
+			"key__": "type_position",
+			"name": "type_position",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "GPS|GPS DIFFERENTIAL|ARGOS|INTERPOLATE|MANUAL|NONE|N/A",
+			"value": 1,
+			"length": 0.1000000015,
+			"height": 0.01999999955,
+			"horizontalAlignment": "right",
+			"comment": "Description of navigation system"
+		},
+		"serial_number": {
+			"key__": "serial_number",
+			"name": "serial_number",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Instrument serial number"
+		},
+		"data_type": {
+			"key__": "data_type",
+			"name": "data_type :",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "OceanSITES profile data|OceanSITES time-series data|OceanSITES trajectory data|OceanSITES metadata",
+			"value": 1,
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Describe data type contained in file, eg: TRAJECTORY, PROFIL or TIME_SERIE"
+		},
+		"data_mode": {
+			"key__": "data_mode",
+			"name": "data_mode :",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "R|P|D|M",
+			"value": 1,
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Indicate if the file contains real time or delayed mode data"
+		},
+		"time_coverage_start": {
+			"key__": "time_coverage_start",
+			"name": "time_coverage_start :",
+			"conventions": "yyyy-mm-ddThh-mn-ssZ",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Date of first measurements"
+		},
+		"time_coverage_end": {
+			"key__": "time_coverage_end",
+			"name": "time_coverage_end :",
+			"conventions": "yyyy-mm-ddThh-mn-ssZ",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Date of last measurements"
+		},
+		"Netcdf_version": {
+			"key__": "Netcdf_version",
+			"name": "Netcdf_version :",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "3.6",
+			"value": 1,
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "File format version"
+		},
+		"Conventions": {
+			"key__": "Conventions",
+			"name": "Conventions :",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "CF-1.4, OceanSITES 1.2",
+			"value": 1,
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "NetCDF file format conventions"
+		},
+		"date_creation": {
+			"key__": "date_creation",
+			"name": "date_creation :",
+			"conventions": "yyyy-mm-ddThh-mn-ssZ",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Date and time of file creation, format: YYYYMMDDHHMISS"
+		},
+		"date_update": {
+			"key__": "date_update",
+			"name": "date_update :",
+			"conventions": "yyyy-mm-ddThh-mn-ssZ",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Date and time of file update, format: YYYYMMDDHHMISS"
+		},
+		"data_restrictions": {
+			"key__": "data_restrictions",
+			"name": "data_restrictions :",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "NONE",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Restriction on use for these data"
+		},
+		"pi_name": {
+			"key__": "pi_name",
+			"name": "pi_name :",
+			"conventions": "Firstname Surname",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Name of principal investigator in charge of the data, ex: IRD,CNRS or IFREMER"
+		},
+		"author": {
+			"key__": "author",
+			"name": "author :",
+			"conventions": "Firstname Surname",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Name of the person responsible for the creation of the dataset."
+		},
+		"data_assembly_center": {
+			"key__": "data_assembly_center",
+			"name": "data_assembly_center :",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "IRD|GENAVIR|SHOM|CNRS",
+			"value": 1,
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Acquisition data centre, ex: SHOM,IRD,GENAVIR,CNRS,..."
+		},
+		"site_code": {
+			"key__": "site_code",
+			"name": "site_code",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": ""
+		},
+		"processing_centre": {
+			"key__": "processing_centre",
+			"name": "processing_centre :",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "IRD|ORE-SSS|CORIOLIS/IRD|CORIOLIS/SISMER",
+			"value": 1,
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Processing data centre, ex: ORE-SSS,CORIOLIS,SISMER,..."
+		},
+		"institution_references": {
+			"key__": "institution_references",
+			"name": "institution_references :",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Specifies institution where the original data was produced."
+		},
+		"processing_state": {
+			"key__": "processing_state",
+			"name": "processing_state :",
+			"conventions": "",
+			"uicontrolType": "popupmenu",
+			"string": "0A|1A|2B|2B+|2C|2C+|3B",
+			"value": 1,
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "0A: DONNEE BRUTE|1A: DONNEE LOCALISEE"
+		},
+		"history": {
+			"key__": "history",
+			"name": "history :",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Provides an audit trail for modifications to the original data. It should contain a separate line for each modification, with each line beginning with a timestamp, and including user name,  modification name, and modification arguments. The time stamp should follow the format outlined in the note on time formats below."
+		},
+		"comment": {
+			"key__": "comment",
+			"name": "comment :",
+			"conventions": "",
+			"uicontrolType": "edit",
+			"string": "",
+			"value": {
+				"_ArrayType_": "single",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"length": 0.1099999994,
+			"height": 0.02999999933,
+			"horizontalAlignment": "right",
+			"comment": "Miscellaneous information about the data or methods used to produce it. Any free-format text is appropriate."
+		}
+	},
+	"Parameters": {
+		"STATION": {
+			"key__": "STATION",
+					"dimension__": "TIME",
+			"type__": "int",
+			"function__": "profile",
+			"long_name": "STATION NUMBER",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"positive": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "%4d",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Station number, a station could be have more than one cast",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"CAST": {
+			"key__": "CAST",
+					"dimension__": "TIME",
+			"type__": "int",
+			"function__": "profile",
+			"long_name": "CAST NUMBER",
+			"standard_name": "",
+			"units": "",
+			"conventions": "",
+			"positive": "",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "%4d",
+			"FillValue_": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Cast number",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"DEPH": {
+			"key__": "DEPH",
+			"dimension__": [
+						"TIME",
+						"LEVEL"
+			],
+			"type__": "float",
+			"function__": "level",
+			"long_name": "SEA WATER DEPH",
+			"standard_name": "deph",
+			"units": "m",
+			"conventions": "",
+			"positive": "up",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "%7.2lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "Z",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Deph of the measurement",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "LEVEL",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"PRES": {
+			"key__": "PRES",
+			"dimension__": [
+						"TIME",
+						"LEVEL"
+			],
+			"type__": "float",
+			"function__": "level",
+			"long_name": "SEA WATER PRESSURE",
+			"standard_name": "sea water pressure",
+			"units": "decibard",
+			"conventions": "",
+			"positive": "down",
+			"valid_min": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"valid_max": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"format": "%7.2lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "Z",
+			"resolution": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"comment": "Pressure of the measurement",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "LEVEL",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"TEMP": {
+			"key__": "TEMP",
+			"dimension__": [
+						"TIME",
+						"LEVEL"
+			],
+			"type__": "float",
+			"function__": "physical",
+			"long_name": "SEA WATER TEMPERATURE",
+			"standard_name": "sea_water_temperature",
+			"units": "degree_Celsius",
+			"conventions": "",
+			"positive": "",
+			"valid_min": -1.5,
+			"valid_max": 38,
+			"format": "%6.3lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Ocean temperature",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"PSAL": {
+			"key__": "PSAL",
+			"dimension__": [
+						"TIME",
+						"LEVEL"
+			],
+			"type__": "float",
+			"function__": "physical",
+			"long_name": "PRACTICAL SALINITY",
+			"standard_name": "sea_water_salinity",
+			"units": "psu",
+			"conventions": "",
+			"positive": "",
+			"valid_min": -1.5,
+			"valid_max": 38,
+			"format": "%6.3lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Ocean salinity",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"DOX2": {
+			"key__": "DOX2",
+			"dimension__": [
+						"TIME",
+						"LEVEL"
+			],
+			"type__": "float",
+			"function__": "physical",
+			"long_name": "DISSOLVED OXYGEN",
+			"standard_name": "moles_of_oxygen_per_unit_mass_in_sea_water was dissolved_oxygen",
+			"units": "micromole/kg",
+			"conventions": "",
+			"positive": "",
+			"valid_min": -1.5,
+			"valid_max": 38,
+			"format": "%6.3lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Ocean oxygen in micromole by kg",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"DENS": {
+			"key__": "DENS",
+			"dimension__": [
+						"TIME",
+						"LEVEL"
+			],
+			"type__": "float",
+			"function__": "physical",
+			"long_name": "DENSITY",
+			"standard_name": "sea_water_density",
+			"units": "kg/m3",
+			"conventions": "",
+			"positive": "",
+			"valid_min": -1.5,
+			"valid_max": 38,
+			"format": "%6.3lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Ocean density",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"SVEL": {
+			"key__": "SVEL",
+			"dimension__": [
+						"TIME",
+						"LEVEL"
+			],
+			"type__": "float",
+			"function__": "physical",
+			"long_name": "SOUND VELOCITY",
+			"standard_name": "sea_water_velocity",
+			"units": "meter/second",
+			"conventions": "",
+			"positive": "",
+			"valid_min": 1350,
+			"valid_max": 1600,
+			"format": "%7.2lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Ocean sound velocity",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"DRYT": {
+			"key__": "DRYT",
+			"dimension__": [
+						"TIME",
+						"LEVEL"
+			],
+			"type__": "float",
+			"function__": "physical",
+			"long_name": "AIR TEMPERATURE",
+			"standard_name": "air_temperature",
+			"units": "degree_Celsius",
+			"conventions": "",
+			"positive": "",
+			"valid_min": -1.5,
+			"valid_max": 38,
+			"format": "%6.3lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Air temperature",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"WMSP": {
+			"key__": "WMSP",
+			"dimension__": [
+						"TIME",
+						"LEVEL"
+			],
+			"type__": "float",
+			"function__": "physical",
+			"long_name": "WIND SPEED - MAX AVER PER 2 MN",
+			"standard_name": "wind_speed",
+			"units": "meter/second",
+			"conventions": "",
+			"positive": "",
+			"valid_min": 0,
+			"valid_max": 200,
+			"format": "%6.3lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Horizontal wind speed",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"WDIR": {
+			"key__": "WDIR",
+			"dimension__": [
+						"TIME",
+						"LEVEL"
+			],
+			"type__": "float",
+			"function__": "physical",
+			"long_name": "WIND DIRECTION REL. TRUE NORTH",
+			"standard_name": "wind_to_direction",
+			"units": "degree",
+			"conventions": "",
+			"positive": "",
+			"valid_min": 0,
+			"valid_max": 360,
+			"format": "%5.1lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Horizontal wind speed",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"ATMS": {
+			"key__": "ATMS",
+			"dimension__": [
+						"TIME",
+						"LEVEL"
+			],
+			"type__": "float",
+			"function__": "physical",
+			"long_name": "ATMOSPHERIC PRESSURE - SEA LEV",
+			"standard_name": "air_pressure_at_sea_level",
+			"units": "hectoPascal",
+			"conventions": "",
+			"positive": "",
+			"valid_min": 940,
+			"valid_max": 1030,
+			"format": "%8.3lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Atmospheric pressure at sea level",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"RELH": {
+			"key__": "RELH",
+			"dimension__": [
+						"TIME",
+						"LEVEL"
+			],
+			"type__": "float",
+			"function__": "physical",
+			"long_name": "RELATIVE HUMIDITY",
+			"standard_name": "relative_humidity",
+			"units": "%",
+			"conventions": "",
+			"positive": "",
+			"valid_min": 0,
+			"valid_max": 100,
+			"format": "%6.1lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Relative humidity",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"NSCT": {
+			"key__": "NSCT",
+			"dimension__": [
+						"TIME",
+						"LEVEL"
+			],
+			"type__": "float",
+			"function__": "physical",
+			"long_name": "CURRENT NORTH COMPONENT",
+			"standard_name": "",
+			"units": "cm/second",
+			"conventions": "",
+			"positive": "",
+			"valid_min": -100,
+			"valid_max": 100,
+			"format": "%7.3lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.01,
+			"comment": " Current north",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"EWCT": {
+			"key__": "EWCT",
+			"dimension__": [
+						"TIME",
+						"LEVEL"
+			],
+			"type__": "float",
+			"function__": "physical",
+			"long_name": "CURRENT EAST COMPONENT",
+			"standard_name": "",
+			"units": "cm/second",
+			"conventions": "",
+			"positive": "",
+			"valid_min": -100,
+			"valid_max": 100,
+			"format": "%7.3lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.02,
+			"comment": "Current east",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"SSJT": {
+			"key__": "SSJT",
+			"dimension__": [
+						"TIME",
+						"LEVEL"
+			],
+			"type__": "float",
+			"function__": "physical",
+			"long_name": "SEA SURFACE WATER JACKET TEMPERATURE",
+			"standard_name": "sea_water_temperature",
+			"units": "degree_Celsius",
+			"conventions": "",
+			"positive": "",
+			"valid_min": -1.5,
+			"valid_max": 38,
+			"format": "%6.3lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Ocean temperature",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"SSTP": {
+			"key__": "SSTP",
+			"dimension__": [
+						"TIME",
+						"LEVEL"
+			],
+			"type__": "float",
+			"function__": "physical",
+			"long_name": "SEA SURFACE WATER TEMPERATURE",
+			"standard_name": "sea_water_temperature",
+			"units": "degree_Celsius",
+			"conventions": "",
+			"positive": "",
+			"valid_min": -1.5,
+			"valid_max": 38,
+			"format": "%6.3lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Sea surface Ocean temperature",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"SSPS": {
+			"key__": "SSPS",
+			"dimension__": [
+						"TIME",
+						"LEVEL"
+			],
+			"type__": "float",
+			"function__": "physical",
+			"long_name": "SEA SURFACE PRACTICAL SALINITY",
+			"standard_name": "sea_water_salinity",
+			"units": "psu",
+			"conventions": "",
+			"positive": "",
+			"valid_min": -1.5,
+			"valid_max": 38,
+			"format": "%6.3lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Ocean salinity",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"PCO2": {
+			"key__": "PCO2",
+			"dimension__": [
+						"TIME",
+						"LEVEL"
+			],
+			"type__": "float",
+			"function__": "physical",
+			"long_name": "CO2 PART. PRES IN DRY/WET GAS",
+			"standard_name": "",
+			"units": "microatmosphere",
+			"conventions": "",
+			"positive": "",
+			"valid_min": 100,
+			"valid_max": 700,
+			"format": "%7.3lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Ocean salinity",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"FLU2": {
+			"key__": "FLU2",
+			"dimension__": [
+						"TIME",
+						"LEVEL"
+			],
+			"type__": "float",
+			"function__": "physical",
+			"long_name": "FLUORESCENCE",
+			"standard_name": "",
+			"units": "milligram/m3",
+			"conventions": "",
+			"positive": "",
+			"valid_min": 0,
+			"valid_max": 1,
+			"format": "%8.4lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Ocean salinity",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		},
+		"TUR3": {
+			"key__": "TUR3",
+			"dimension__": [
+						"TIME",
+						"LEVEL"
+			],
+			"type__": "float",
+			"function__": "physical",
+			"long_name": "LIGHT TRANSMISSION",
+			"standard_name": "",
+			"units": "%",
+			"conventions": "",
+			"positive": "",
+			"valid_min": 0,
+			"valid_max": 100,
+			"format": "%6.2lf",
+			"FillValue_": 99999,
+			"epic_code": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"axis": "",
+			"resolution": 0.001,
+			"comment": "Ocean salinity",
+			"default_value": {
+				"_ArrayType_": "double",
+				"_ArraySize_": [0,0],
+				"_ArrayData_": null
+			},
+			"coordinate": "TIME",
+			"flag_values": "",
+			"flag_meanings": ""
+		}
+	}
+}

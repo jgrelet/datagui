@@ -1,0 +1,11 @@
+i tous les tags sont utiles, les passer en majuscules
+Le changement de point dans plot_map ne fonctionne pas
+Verifier si necessaire dans plot_map :
+set( findobj( 'Tag', 'tag_but2' ), 'UserData', limx );
+set( findobj( 'Tag', 'tag_but3' ), 'UserData', limy );
+
+Voir si amelioer le changement de trace dans plot_map (setobservable
+    pour self.hdl_line_route )
+manque tbase.bin dans oceano
+Creer les popup dynamiquement en fonction de la recherche dans le path et des
+toolbox installées.
