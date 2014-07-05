@@ -52,9 +52,46 @@ Quick guide to setup git with datagui package on GitHUB
   $ git push -u origin master
 
   Working:
+  
+  Listing branch:
+  $ git branch 
 
+  the * character that prefixes the  branch indicates the branch that 
+  you currently have checked out
+
+  To see the last commit on each branch:
+  $ git branch -v
+
+  Create branch 'test' and work inside:
+  $ git branch test
+  $ git checkout test
+  or shorthand :
+  $ git checkout -b test
+
+  Switched to branch 'master':
+  $ git checkout master
+
+  Switched to branch 'test':
+  $ git checkout test
+
+  Merging:
+  $ git checkout master
+  $ git merge test
+
+  If conflict:
+  $ git status
  
+  Listing your Tags:
+  $ git tag
 
+  Creating Tags:
+  $ git tag -a v1.0 -m 'my version 1.0'
+  
+  See tag data
+  $ git show v1.0
+
+  Verifying Tags:
+  $ git tag -v v1.0
 
   Matlab:
   add git.m to your pathdef.m
