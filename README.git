@@ -1,0 +1,61 @@
+Quick guide to setup git with datagui package on GitHUB
+
+  Install git under windows or Linux:
+  http://git-scm.com/download
+
+  Initialize git:
+    $ git config --global user.name "username"
+    $ git config --global user.name "your_email@example.com
+    $ git config --global color.diff auto
+    $ git config --global color.status auto
+    $ git config --global color.branch auto
+    $ git config --global core.autocrlf input
+    $ vi ~/.gitconfig
+  add:
+    [alias]
+        ci = commit
+        co = checkout
+        st = status
+        br = branch
+  
+  Initialize local repository with one test file:
+  touch <file>
+  git init
+  git add <file>
+  git commit -m "first commit"
+
+  Setup ssh keys:
+  $ ssh-keygen -t rsa
+  or 
+  $ ssh-keygen -t rsa -C "your_email@example.com"
+  to create yours ssh keys and paraphrase
+
+  go to ~/.ssh local directory and copy your public key from id_rsa.pub file
+  to your github admin page: https://github.com/<user>, click on the
+  "Account settings" icon, select SSH keys in left tab and add your public key.
+
+  Go to the "Repositories" tab and create a new one.
+
+  In rigth panel, select the protocol SSH and click the button to copy
+  the URL,
+  ssh: git@github.com:jgrelet/datagui.git
+   
+  see doc: https://help.github.com/articles/which-remote-url-should-i-use
+
+  Test ssh connection :
+  $ ssh -vT git@github.com
+
+  help for ssh: http://help.github.com/ssh-issues/
+
+  Push your local copy to GitHUB:
+  $ git remote add origin git@github.com:<user>/datagui.git
+  $ git push -u origin master
+
+  Working:
+
+ 
+
+
+  Matlab:
+  add git.m to your pathdef.m
+  see: https://github.com/manur/MATLAB-git
