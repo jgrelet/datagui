@@ -1,7 +1,10 @@
 Quick guide to setup git with datagui package on GitHUB
 
-  Install git under windows or Linux:
+  Install git under Windows or Linux:
   http://git-scm.com/download
+
+  Install Tortoise Git:
+  https://code.google.com/p/tortoisegit/
 
   Initialize git:
     $ git config --global user.name "username"
@@ -50,6 +53,16 @@ Quick guide to setup git with datagui package on GitHUB
   Push your local copy to GitHUB:
   $ git remote add origin git@github.com:<user>/datagui.git
   $ git push -u origin master
+
+  If you want use TortoiseGit under Windows to push, you must configure Git
+  (left panel) 
+   - Git/Remote and set up "origin" and  "URL" and "Push URL" tabs
+     with "git@github.com:jgrelet/datagui.git"
+   - Network: SSH client with: "C:\Program Files (x86)\Git\bin\ssh.exe"
+     instead of plink.
+  
+  If you want use cygwin, don't forget to use the same public and private keys
+  from Git bash and Git cygwin .ssh directories.
 
   Working:
   
