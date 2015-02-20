@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration target="target.ezdeploy.standalone" target-name="MATLAB Compiler for Standalone Applications" name="xls_chimie_to_odv" location="C:\git\datagui\+datagui\+tools" file="C:\git\datagui\+datagui\+tools\xls_chimie_to_odv.prj" preferred-package-type="package.type.exe" build-checksum="1948822497" preferred-package-location="C:\git\datagui\+datagui\+tools\xls_chimie_to_odv\for_redistribution">
+  <configuration target="target.ezdeploy.standalone" target-name="MATLAB Compiler for Standalone Applications" name="xls_chimie_to_odv" location="C:\git\datagui\chimie" file="C:\git\datagui\chimie\xls_chimie_to_odv.prj" preferred-package-type="package.type.exe" build-checksum="3920928830" preferred-package-location="C:\git\datagui\chimie\xls_chimie_to_odv\for_redistribution">
     <param.appname>xls_chimie_to_odv</param.appname>
     <param.authnamewatermark>Jacques Grelet</param.authnamewatermark>
     <param.email>Jacques.Grelet@ird.fr</param.email>
@@ -94,8 +94,8 @@
     <fileset.resources />
     <fileset.package />
     <build-deliverables>
-      <file name="xls_chimie_to_odv.exe" location="${PROJECT_ROOT}\xls_chimie_to_odv\for_testing" optional="false">C:\git\datagui\+datagui\+tools\xls_chimie_to_odv\for_testing\xls_chimie_to_odv.exe</file>
-      <file name="readme.txt" location="${PROJECT_ROOT}\xls_chimie_to_odv\for_testing" optional="true">C:\git\datagui\+datagui\+tools\xls_chimie_to_odv\for_testing\readme.txt</file>
+      <file name="xls_chimie_to_odv.exe" location="${PROJECT_ROOT}\xls_chimie_to_odv\for_testing" optional="false">C:\git\datagui\chimie\xls_chimie_to_odv\for_testing\xls_chimie_to_odv.exe</file>
+      <file name="readme.txt" location="${PROJECT_ROOT}\xls_chimie_to_odv\for_testing" optional="true">C:\git\datagui\chimie\xls_chimie_to_odv\for_testing\readme.txt</file>
     </build-deliverables>
     <workflow />
     <matlab>
