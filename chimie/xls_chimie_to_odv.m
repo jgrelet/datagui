@@ -8,13 +8,13 @@ function xls_chimie_to_odv
 
 % select Excel filename
 % ---------------------
-[fileName, pathName] = uigetfile(...
-  {'*.xls;*.xlsx','Excel (*.xls,*.xlsx)'}, 'Select file');
+% [fileName, pathName] = uigetfile(...
+%   {'*.xls;*.xlsx','Excel (*.xls,*.xlsx)'}, 'Select file');
 
 % for debug, uncomment these lines
 % --------------------------------
-% fileName = 'PIRATA FR 25_chimie.xlsx';
-% pathName = './';
+fileName = 'PIRATA FR 25_chimie.xlsx';
+pathName = 'C:\git\datagui\chimie\';
 
 if any(fileName)
   excel_file = fullfile(pathName, fileName);
@@ -29,14 +29,17 @@ end
 % read Excel worksheet in raw mode (unprocessed cell content) which
 % contains both numeric and text data, empty cell is fillwith NaN
 % -----------------------------------------------------------------
-[stations, dates, latitudes, longitudes, cdata] = read_excel_oxygen_file(excel_file);
+%[stations, dates, latitudes, longitudes, cdata] = read_excel_oxygen_file(excel_file);
+
+[stations, dates, latitudes, longitudes, cdata] = read_excel_oxygen_automation(excel_file);
+
 
 
 % loop over station number and jump to next station if missing
 % ------------------------------------------------------------
 for istn = 1 : length(stations)
   
-  % get data for a station 
+  % get data for a station
   % ----------------------
   BOTL  = cdata(:,1,istn)';
   DEPTH = cdata(:,2,istn)';
@@ -49,7 +52,7 @@ for istn = 1 : length(stations)
   NTRA  = cdata(:,9,istn)';
   PHOS  = cdata(:,10,istn)';
   SLCA  = cdata(:,11,istn)';
-
+  
   % for each sample
   % -----------------
   for ll=1 : 24
@@ -75,7 +78,109 @@ end
 % ----------
 fclose(fid);
 
-
+% ----------------------------------------------------------
+  function [stations, dates, latitudes, longitudes, data] = read_excel_oxygen_automation(fileName)
+    
+    % open
+    % ------
+    Excel = actxserver('Excel.Application');
+    Workbook = Excel.Workbooks.Open(fileName);
+    
+    % get sheets filename
+    % -------------------
+    sheet = cell(1, Excel.Sheets.Count);
+    for idx = 1 : Excel.Sheets.Count
+      sheet{idx} = Excel.Sheets.Item(idx).Name;
+    end
+    
+    match = regexp( sheet, '^(\d+)_\d+', 'tokens');
+    if ~isempty(match)
+      sheets = find(cellfun('isempty', match) == 0);
+    else
+      disp('No oxygen profil, check your Excel file...');
+      return
+    end
+    
+    % allocate arrays size
+    % -------------------
+    columns  = [1,7,5,14,17,3,19,21,23,25,27];
+    lines    = 1:24;
+    data = zeros(length(lines), length(columns), length(sheets));
+    stations = zeros(1,length(sheets));
+    dates = cell(length(sheets),1);  % cell for char
+    latitudes = zeros(1,length(sheets));
+    longitudes = zeros(1,length(sheets));
+    
+    % loop over each excel sheet
+    % add a regex to loop over "station xx" header only
+    % --------------------------
+    for k = sheets   % loop over sheets station in the file
+      
+      % extract station number from sheet name
+      % --------------------------------------
+      station = str2double(match{k}{1});
+      stations(k) = station;
+      
+      % read Excel worksheet in raw mode (unprocessed cell content) which
+      % contains both numeric and text data, empty cell is fillwith NaN
+      % -----------------------------------------------------------------
+      fprintf('Read station %d\n', station)
+      
+      ActiveSheet = Excel.Worksheets.Item(sheet{k});
+      dates{k} = ActiveSheet.Range('P11').Value;
+      latitudes(k) = ActiveSheet.Range('Q9').Value;
+      longitudes(k) = ActiveSheet.Range('Q10').Value;
+      raw = ActiveSheet.Range('C34:AC57').Value;  % return cell
+      
+      % initialize array indice
+      % ------------------------
+      ii=1;jj=1;
+      
+      % loop over lines and columns
+      % ---------------------------
+      for i = lines
+        
+        for j = columns
+          
+          % get value from cell
+          % -------------------
+          value = raw{i,j};
+          
+          % get only double value, set to Nan for other cell
+          % ------------------------------------------------
+          if ~isempty(value)
+            if ischar(value)
+              data(ii,jj,k) = str2double(value);
+            else
+              data(ii,jj,k) = value;
+            end
+          else
+            data(ii,jj,k) = NaN;
+          end
+          jj = jj + 1;  % increment array indices for data: next column
+          
+        end % end loop over columns
+        
+        ii = ii + 1; % increment array indices for data: next line
+        jj = 1;      % reset column
+        
+      end % end loop over lines
+      
+    end
+    
+    % reverse sampling order
+    % ----------------------
+    data = flip(data);
+    
+    % Fermeture du classeur
+    Workbook.Close(false);
+    
+    % quit Excel and delete object
+    % ---------------------------
+    Excel.Quit;
+    delete(Excel)
+    
+  end % end of read_excel_oxygen_automation
 
 % This function read chimical analyses (salinity and oxygen)
 % from US191 IMAGO Excel file
@@ -99,7 +204,7 @@ fclose(fid);
     % oxygen (umol/kg): column 19 (S)
     % tmp0 (T prelevement): column 5 (E)
     % ----------------
-    columns  = [3,9,7,16,19,5,21,23,25,27,28];
+    columns  = [3,9,7,16,19,5,21,23,25,27,29];
     lines    = 34:57;
     
     % get sheets name and number in Excel file
@@ -164,7 +269,7 @@ fclose(fid);
           
           % get only double value, set to Nan for other cell
           % ------------------------------------------------
-          if ~isempty(value) 
+          if ~isempty(value)
             if ischar(value)
               data(ii,jj,k) = str2double(value);
             else
@@ -180,14 +285,14 @@ fclose(fid);
         ii = ii + 1; % increment array indices for data: next line
         jj = 1;      % reset column
         
-      end % end loop over lines 
+      end % end loop over lines
       
     end  % end loop over sheets
     
     % reverse sampling order
     % ----------------------
     data = flip(data);
-  
+    
   end % end read_excel function
 
 end % end of main function
