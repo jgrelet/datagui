@@ -6,18 +6,15 @@ function xls_chimie_to_odv
 %
 % J Grelet - LOSS cruise - IRD-US191 - dec 2014
 
+% select Excel filename
+% ---------------------
+[fileName, pathName] = uigetfile(...
+  {'*.xls;*.xlsx','Excel (*.xls,*.xlsx)'}, 'Select file');
+
 % for debug, uncomment these lines
 % --------------------------------
-%echo = true;
-%echo = false;
-
-% set and define filename access
-% ------------------------------
-
-% [fileName, pathName] = uigetfile(...
-%   {'*.xls;*.xlsx','Excel (*.xls,*.xlsx)'}, 'Select file');
-fileName = 'PIRATA FR 25_chimie.xlsx';
-pathName = './';
+% fileName = 'PIRATA FR 25_chimie.xlsx';
+% pathName = './';
 
 if any(fileName)
   excel_file = fullfile(pathName, fileName);
@@ -29,20 +26,18 @@ else
 end
 
 
-
-
 % read Excel worksheet in raw mode (unprocessed cell content) which
 % contains both numeric and text data, empty cell is fillwith NaN
 % -----------------------------------------------------------------
-[stations, DATE, LATITUDE, LONGITUDE, cdata] = read_excel_oxygen_file(excel_file);
+[stations, dates, latitudes, longitudes, cdata] = read_excel_oxygen_file(excel_file);
 
 
 % loop over station number and jump to next station if missing
 % ------------------------------------------------------------
 for istn = 1 : length(stations)
   
-  % get all data for same station number
-  % ------------------------------------
+  % get data for a station 
+  % ----------------------
   BOTL  = cdata(:,1,istn)';
   DEPTH = cdata(:,2,istn)';
   PSAL  = cdata(:,3,istn)';
@@ -55,20 +50,6 @@ for istn = 1 : length(stations)
   PHOS  = cdata(:,10,istn)';
   SLCA  = cdata(:,11,istn)';
 
-  % reverse bottle order
-  % --------------------
-  BOTL(1:end) = BOTL(end:-1:1);
-  DEPTH(1:end) = DEPTH(end:-1:1);
-  PSAL(1:end) = PSAL(end:-1:1);
-  DOX1(1:end) = DOX1(end:-1:1);
-  DOX2(1:end) = DOX2(end:-1:1);
-  % tmpo(1:end) = tmpo(end:-1:1);
-  NTRI(1:end) = NTRI(end:-1:1);
-  NTRI_NTRA(1:end) = NTRI_NTRA(end:-1:1);
-  NTRA(1:end) = NTRA(end:-1:1);
-  PHOS(1:end) = PHOS(end:-1:1);
-  SLCA(1:end) = SLCA(end:-1:1);
-
   % for each sample
   % -----------------
   for ll=1 : 24
@@ -77,7 +58,7 @@ for istn = 1 : length(stations)
     % -----------------
     if ~isnan(DEPTH(ll))
       fprintf(1, '%3d %s %-5.2f %-6.2f %2d %7.1f  %6.3f  %6.3f %5.1f %5.2f %5.2f %5.2f %5.2f %5.2f\n', ...
-        stations(istn), DATE{istn}, LATITUDE(istn), LONGITUDE(istn),...
+        stations(istn), dates{istn}, latitudes(istn), longitudes(istn),...
         BOTL(ll), DEPTH(ll), PSAL(ll), DOX1(ll), DOX2(ll),...
         NTRI(ll),NTRI_NTRA(ll), NTRA(ll), PHOS(ll), SLCA(ll));
       
@@ -102,7 +83,7 @@ fclose(fid);
 %
 % J Grelet - PANDORA cruise - IRD-US191 - July 2012
 % ----------------------------------------------------------
-  function [stations, DATE, LATITUDE, LONGITUDE, data] = read_excel_oxygen_file(fileName)
+  function [stations, dates, latitudes, longitudes, data] = read_excel_oxygen_file(fileName)
     
     % open xls info and get informations
     % ----------------------------------
@@ -141,9 +122,9 @@ fclose(fid);
     % -------------------
     data = zeros(length(lines), length(columns), length(sheets));
     stations = zeros(1,length(sheets));
-    DATE = cell(length(sheets),1);  % cell for char
-    LATITUDE = zeros(1,length(sheets));
-    LONGITUDE = zeros(1,length(sheets));
+    dates = cell(length(sheets),1);  % cell for char
+    latitudes = zeros(1,length(sheets));
+    longitudes = zeros(1,length(sheets));
     
     % loop over each excel sheet
     % add a regex to loop over "station xx" header only
@@ -163,9 +144,9 @@ fclose(fid);
       
       % get date and position
       % ---------------------
-      DATE{k}      = raw{11, 16};
-      LATITUDE(k)  = raw{9, 17};
-      LONGITUDE(k) = raw{10, 17};
+      dates{k}      = raw{11, 16};
+      latitudes(k)  = raw{9, 17};
+      longitudes(k) = raw{10, 17};
       
       % initialize array indice
       % ------------------------
@@ -203,6 +184,10 @@ fclose(fid);
       
     end  % end loop over sheets
     
+    % reverse sampling order
+    % ----------------------
+    data = flip(data);
+  
   end % end read_excel function
 
 end % end of main function
