@@ -1,20 +1,20 @@
 function xls_chimie_to_odv
-% This script read chimical analyses (oxygen and salinity) and
-% apend 3 columns (salc, oxyc, tmpo) in CADHYAC-LPO chimical file
+% This script read chemical analyses oxygen, salinity and nutrients and
+% write them in ODV file
 %
-% from US191 IMAGO Excel file
+% from US191 IMAGO Excel chemical file
 %
-% J Grelet - LOSS cruise - IRD-US191 - dec 2014
+% J Grelet - IRD-US191 - feb 2015
 
 % select Excel filename
 % ---------------------
-% [fileName, pathName] = uigetfile(...
-%   {'*.xls;*.xlsx','Excel (*.xls,*.xlsx)'}, 'Select file');
+[fileName, pathName] = uigetfile(...
+  {'*.xls;*.xlsx','Excel (*.xls,*.xlsx)'}, 'Select file');
 
 % for debug, uncomment these lines
 % --------------------------------
-fileName = 'PIRATA FR 25_chimie.xlsx';
-pathName = 'C:\git\datagui\chimie\';
+% fileName = 'PIRATA FR 25_chimie.xlsx';
+% pathName = 'C:\git\datagui\chimie\';
 
 if any(fileName)
   excel_file = fullfile(pathName, fileName);
@@ -206,6 +206,8 @@ fclose(fid);
     % ----------------
     columns  = [3,9,7,16,19,5,21,23,25,27,29];
     lines    = 34:57;
+%     columns  = [1,7,5,14,17,3,19,21,23,25,27];
+%     lines    = 1:24;
     
     % get sheets name and number in Excel file
     % ----------------------------------------
