@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration target="target.ezdeploy.standalone" target-name="MATLAB Compiler for Standalone Applications" name="xls_chimie_to_odv" location="C:\git\datagui\chimie" file="C:\git\datagui\chimie\xls_chimie_to_odv.prj" preferred-package-type="package.type.exe" build-checksum="3920928830" preferred-package-location="C:\git\datagui\chimie\xls_chimie_to_odv\for_redistribution">
+  <configuration target="target.ezdeploy.standalone" target-name="MATLAB Compiler for Standalone Applications" name="xls_chimie_to_odv" location="C:\git\datagui\chimie" file="C:\git\datagui\chimie\xls_chimie_to_odv.prj" preferred-package-type="package.type.exe" build-checksum="2498110189" preferred-package-location="C:\git\datagui\chimie\xls_chimie_to_odv\for_redistribution">
     <param.appname>xls_chimie_to_odv</param.appname>
     <param.authnamewatermark>Jacques Grelet</param.authnamewatermark>
     <param.email>Jacques.Grelet@ird.fr</param.email>
