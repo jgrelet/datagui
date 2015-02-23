@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration target="target.ezdeploy.standalone" target-name="MATLAB Compiler for Standalone Applications" name="xls_chimie_to_odv" location="C:\git\datagui\chimie" file="C:\git\datagui\chimie\xls_chimie_to_odv.prj" preferred-package-type="package.type.exe" build-checksum="2498110189" preferred-package-location="C:\git\datagui\chimie\xls_chimie_to_odv\for_redistribution">
+  <configuration target="target.ezdeploy.standalone" target-name="MATLAB Compiler for Standalone Applications" name="xls_chimie_to_odv" location="C:\git\datagui\chimie" file="C:\git\datagui\chimie\xls_chimie_to_odv.prj" preferred-package-type="package.type.exe" build-checksum="1348011530" preferred-package-location="C:\git\datagui\chimie\xls_chimie_to_odv\for_redistribution">
     <param.appname>xls_chimie_to_odv</param.appname>
-    <param.authnamewatermark>Jacques Grelet</param.authnamewatermark>
-    <param.email>Jacques.Grelet@ird.fr</param.email>
-    <param.company>IRD</param.company>
+    <param.authnamewatermark>Jacques grelet</param.authnamewatermark>
+    <param.email>Jacques.grelet@ird.fr</param.email>
+    <param.company>IRD - US191 IMAGO - Brest</param.company>
     <param.icon />
     <param.icons />
     <param.summary>chemical</param.summary>
-    <param.description>chemical</param.description>
+    <param.description>This program read chemical analyses oxygen, salinity and nutrients from US191 IMAGO Excel file and write them in ODV file</param.description>
     <param.screenshot />
     <param.version>1.0</param.version>
     <param.namespace>xls_chimie_to_odv</param.namespace>
     <param.guid />
-    <param.installpath.string>\IRD\xls_chimie_to_odv\</param.installpath.string>
+    <param.installpath.string>\IRD - US191 IMAGO - Brest\xls_chimie_to_odv\</param.installpath.string>
     <param.installpath.combo>option.installpath.programfiles</param.installpath.combo>
     <param.logo />
     <param.install.notes />
@@ -47,9 +47,6 @@
     <param.create.log>false</param.create.log>
     <param.log.file />
     <unset>
-      <param.authnamewatermark />
-      <param.email />
-      <param.company />
       <param.icon />
       <param.icons />
       <param.screenshot />
@@ -91,7 +88,9 @@
     <fileset.main>
       <file>${PROJECT_ROOT}\xls_chimie_to_odv.m</file>
     </fileset.main>
-    <fileset.resources />
+    <fileset.resources>
+      <file>${PROJECT_ROOT}\excelRead.m</file>
+    </fileset.resources>
     <fileset.package />
     <build-deliverables>
       <file name="xls_chimie_to_odv.exe" location="${PROJECT_ROOT}\xls_chimie_to_odv\for_testing" optional="false">C:\git\datagui\chimie\xls_chimie_to_odv\for_testing\xls_chimie_to_odv.exe</file>

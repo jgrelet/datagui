@@ -86,6 +86,12 @@ classdef excelRead
         varargout{i} = ActiveSheet.Range(varargin{i}).Value;
       end
     end
+    
+    % call destructor
+    % -----------------------
+    function close(self)
+      delete(self);
+    end
   
   end % end of public methods
 
