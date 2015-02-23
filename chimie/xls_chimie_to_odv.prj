@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration target="target.ezdeploy.standalone" target-name="MATLAB Compiler for Standalone Applications" name="xls_chimie_to_odv" location="C:\git\datagui\chimie" file="C:\git\datagui\chimie\xls_chimie_to_odv.prj" preferred-package-type="package.type.exe" build-checksum="1348011530" preferred-package-location="C:\git\datagui\chimie\xls_chimie_to_odv\for_redistribution">
+  <configuration target="target.ezdeploy.standalone" target-name="MATLAB Compiler for Standalone Applications" name="xls_chimie_to_odv" location="C:\git\datagui\chimie" file="C:\git\datagui\chimie\xls_chimie_to_odv.prj" preferred-package-type="package.type.exe" build-checksum="4000943139" preferred-package-location="C:\git\datagui\chimie\xls_chimie_to_odv\for_redistribution">
     <param.appname>xls_chimie_to_odv</param.appname>
     <param.authnamewatermark>Jacques grelet</param.authnamewatermark>
     <param.email>Jacques.grelet@ird.fr</param.email>
@@ -25,7 +25,7 @@
     <param.web.mcr>true</param.web.mcr>
     <param.package.mcr>false</param.package.mcr>
     <param.no.mcr>false</param.no.mcr>
-    <param.web.mcr.name>MyAppInstaller_web</param.web.mcr.name>
+    <param.web.mcr.name>xls_chimie_to_odv</param.web.mcr.name>
     <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
     <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
     <param.user.defined.mcr.options />
@@ -44,8 +44,8 @@
     <param.net.tsa.superclass />
     <param.net.tsa.metadata />
     <param.net.tsa.metadata.assembly>C:\Users\jgrelet\Documents\MATLAB</param.net.tsa.metadata.assembly>
-    <param.create.log>false</param.create.log>
-    <param.log.file />
+    <param.create.log>true</param.create.log>
+    <param.log.file>xls_chimie_to_odv</param.log.file>
     <unset>
       <param.icon />
       <param.icons />
@@ -64,7 +64,6 @@
       <param.web.mcr />
       <param.package.mcr />
       <param.no.mcr />
-      <param.web.mcr.name />
       <param.package.mcr.name />
       <param.no.mcr.name />
       <param.user.defined.mcr.options />
@@ -82,8 +81,6 @@
       <param.net.tsa.superclass />
       <param.net.tsa.metadata />
       <param.net.tsa.metadata.assembly />
-      <param.create.log />
-      <param.log.file />
     </unset>
     <fileset.main>
       <file>${PROJECT_ROOT}\xls_chimie_to_odv.m</file>

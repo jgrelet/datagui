@@ -45,8 +45,6 @@ for k = sheets
   % --------------------------------------
   station = sprintf('st%sc%s', match{k}{1}{1}, match{k}{1}{2});
   
-  pause
-  
   % read Excel worksheet in raw mode (unprocessed cell content) which
   % contains both numeric and text data, empty cell is fillwith NaN
   % -----------------------------------------------------------------
@@ -164,7 +162,6 @@ fprintf( 1, 'Done ...\n');
 delete(xls);
 fclose(fid_odv);
 
-pause
 
   % convert cell array cell by cell if it contains mixed data types
   % ----------------------------------------------------------------

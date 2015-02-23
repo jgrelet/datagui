@@ -45,7 +45,7 @@ classdef excelRead
       end
       
       % excel automation need full file
-      file = fullfile(which(file));
+      %file = fullfile(which(file));
       
       % post initialization
       self.file = file;
