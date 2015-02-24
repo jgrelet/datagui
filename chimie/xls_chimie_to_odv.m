@@ -73,11 +73,11 @@ for k = sheets
   PSAL  = data(:,3);
   DOX1  = data(:,4);
   DOX2  = data(:,5);
-  NTRI  = data(:,7);
-  NTRI_NTRA = data(:,8);
-  NTRA  = data(:,9);
-  PHOS  = data(:,10);
-  SLCA  = data(:,11);
+  NTIW  = data(:,7);
+  NTIW_NTAW = data(:,8);
+  NTAW  = data(:,9);
+  PHOW  = data(:,10);
+  SLCW  = data(:,11);
   
   % loop over level
   % ---------------
@@ -118,30 +118,30 @@ for k = sheets
     else
       fprintf( fid_odv, '%6.2f\t', DOX2(j));
     end
-    if isnan(NTRI(j))
+    if isnan(NTIW(j))
       fprintf( fid_odv, '\t');
     else
-      fprintf( fid_odv, '%5.2f\t', NTRI(j));
+      fprintf( fid_odv, '%5.2f\t', NTIW(j));
     end
-    if isnan(NTRI_NTRA(j))
+    if isnan(NTIW_NTAW(j))
       fprintf( fid_odv, '\t');
     else
-      fprintf( fid_odv, '%7.3f\t', NTRI_NTRA(j));
+      fprintf( fid_odv, '%7.3f\t', NTIW_NTAW(j));
     end
-    if isnan(NTRA(j))
+    if isnan(NTAW(j))
       fprintf( fid_odv, '\t');
     else
-      fprintf( fid_odv, '%5.3f\t', NTRA(j));
+      fprintf( fid_odv, '%5.3f\t', NTAW(j));
     end
-    if isnan(PHOS(j))
+    if isnan(PHOW(j))
       fprintf( fid_odv, '\t');
     else
-      fprintf( fid_odv, '%6.2f\t', PHOS(j));
+      fprintf( fid_odv, '%6.2f\t', PHOW(j));
     end
-    if isnan(SLCA(j))
+    if isnan(SLCW(j))
       fprintf( fid_odv, '\t');
     else
-      fprintf( fid_odv, '%5.2f\t', SLCA(j));
+      fprintf( fid_odv, '%5.2f\t', SLCW(j));
     end
 
     
@@ -227,8 +227,8 @@ fclose(fid_odv);
       fprintf(fid, '//\n');
       fprintf(fid, 'Cruise\tStation\tType\tyyyy-mm-ddThh:mm:ss\tLongitude [degrees_east]\tLatitude [degrees_north]\t');
       fprintf(fid, 'Bot. Depth [m]\tDEPTH [m]\tBottle nb\tPSAL [Psu]\tDOX1 [ml/l]\tDOX2 [micromole/kg]\t');
-      fprintf(fid, 'NTRI [micromole/kg]\tNTRI-NTRA [micromole/kg]\tNTRA [micromole/kg]\t');
-      fprintf(fid, 'PHOS [micromole/kg]\tSLCA [micromole/kg]\n');
+      fprintf(fid, 'NTIW [micromole/kg]\tNTAW+NTIW [micromole/kg]\tNTAW [micromole/kg]\t');
+      fprintf(fid, 'PHOW [micromole/kg]\tSLCW [micromole/kg]\n');
     end
     
   end % end of write_odv_header
