@@ -226,7 +226,7 @@ fclose(fid_odv);
       fprintf(fid, '//<Creator>Jacques.Grelet@ird.fr</Creator>\n');
       fprintf(fid, '//\n');
       fprintf(fid, 'Cruise\tStation\tType\tyyyy-mm-ddThh:mm:ss\tLongitude [degrees_east]\tLatitude [degrees_north]\t');
-      fprintf(fid, 'Bot. Depth [m]\tBottle nb\tPSAL [Psu]\tDOX1 [ml/l]\tDOX2 [micromole/kg]\t');
+      fprintf(fid, 'Bot. Depth [m]\tDEPTH [m]\tBottle nb\tPSAL [Psu]\tDOX1 [ml/l]\tDOX2 [micromole/kg]\t');
       fprintf(fid, 'NTRI [micromole/kg]\tNTRI-NTRA [micromole/kg]\tNTRA [micromole/kg]\t');
       fprintf(fid, 'PHOS [micromole/kg]\tSLCA [micromole/kg]\n');
     end
