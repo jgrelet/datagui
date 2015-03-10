@@ -48,6 +48,7 @@ my  $hdr_file;
 my  $ctd_file;
 my  $xml_ctd_file;
 my  $odv_file;
+my  @files_descr;
 
 my  $institut;
 my  $ctdType;
@@ -80,6 +81,9 @@ my  @format;
 my  %format;
 my  %data;
 my  @data;
+my  ($odv_hdr,$odv_unit);
+my  (@odv_hdr, @odv_unit);
+my  %odv_hdr;
 my  $PRFL;
 
 my  $O2_primary_index   = 5;
@@ -90,6 +94,8 @@ my  $ascii         = undef;
 my  $odv           = undef;   
 my  $all           = undef;
 my  $top           = undef;
+my  $ctd_all       = undef;
+my  $ctdall        = '';
 
 my  $code          = -1;  # code pour l'entete
 
@@ -144,9 +150,10 @@ sub usage() {
   print STDERR   "    --pi=<pi_name> \n";
   print STDERR   "    --ascii                ASCII output instead XML\n";
   print STDERR   "    --xml                  XML output (default)\n";
-  print STDERR   "    --odv                  only ODV output\n";	
+  print STDERR   "    --odv                  ODV output\n";	
   print STDERR   "    --all                  ASCII, XML and ODV output\n";
-  print STDERR   "    --top                  complement surface data\n";  
+  print STDERR   "    --ctdall               output primary and secondary sensors\n";
+  print STDERR   "    --top                  complement surface data with first bin values\n";  
   print STDERR   "    --dtd=[local|public]   define DTD, default public\n";
   print STDERR   "    --sn=<serial_number>\n";
   print STDERR   "    --type=<instrument_type> \n";
@@ -173,6 +180,7 @@ sub get_options() {
                "ascii"           => \$ascii, 
                "odv"             => \$odv,   
                "all"             => \$all,   
+               "ctd_all"         => \$ctd_all,   
                "debug=i"         => \$DEBUG,  
                "echo"            => \$ECHO,  	       
                "institut=s"      => \$institut, 
@@ -187,6 +195,8 @@ sub get_options() {
   # xml by default
   $xml = 1 if (!defined $ascii && !defined $odv); 
   if ($all) { $ascii = $odv = $xml = 1; }
+
+  &read_config_ctd_all('config.ini') if (defined $ctd_all);
 }
 
 =pod
@@ -736,7 +746,11 @@ sub entete_odv {
   print  ODV_FILE "//<Source>$cwd</Sources>\n"; 
   print  ODV_FILE "//<Creator>$creator</Creator>\n";  
   print  ODV_FILE "//\n"; 
-  print  ODV_FILE "Cruise\tStation\tType\tmon/day/yr\thh:mm\tLongitude [degrees_east]\tLatitude [degrees_north]\tBot. Depth [m]\tPres [db]\tTE01 [C]\tTE02 [C]\tPSA1 [Psu\tPSA2 [Psu\tDEN1 [kg/m3]tDEN1 [kg/m3]\tSVEL [m/s]\tDO12 [micromole/kg]\tDO22 [micromole/kg]\tFLU2 [milligram/m3]\t LGHT [micromole photon/(m2.s)]\n";
+  print  ODV_FILE "Cruise\tStation\tType\tmon/day/yr\thh:mm\tLongitude [degrees_east]\tLatitude [degrees_north]\tBot. Depth [m]";
+  foreach my $key (@odv_hdr) {
+    print ODV_FILE "\t$key $odv_hdr{$key}";
+  }
+   print  ODV_FILE "\n";
 }
 
 #------------------------------------------------------------------------------
@@ -793,6 +807,26 @@ sub read_config() {
   $header             = &read_config_string( $Config, 'ctd',     'header');
   $split              = &read_config_string( $Config, 'ctd',     'split');
   $format             = &read_config_string( $Config, 'ctd',     'format');
+  $odv_hdr            = &read_config_string( $Config, 'ctd',     'odv_hdr');
+  $odv_unit           = &read_config_string( $Config, 'ctd',     'odv_unit');
+}
+
+#------------------------------------------------------------------------------
+# read config.ini file where cruise parameter are defined 
+#------------------------------------------------------------------------------	
+sub read_config_ctd_all() {
+  my ($configFile) = @_;
+
+  # Create a config
+  my $Config = Config::Tiny->new;
+  
+  $Config = Config::Tiny->read( $configFile ) 
+	  or die "Could not open '$configFile' $!";
+
+  $header             = &read_config_string( $Config, 'ctd-all',     'header');
+  $split              = &read_config_string( $Config, 'ctd-all',     'split');
+  $format             = &read_config_string( $Config, 'ctd-all',     'format');
+  $ctdall = '-all';
 }
 
 #------------------------------------------------------------------------------
@@ -808,10 +842,12 @@ my $fileName =  $ARGV[0];
 my ($name,$dir) =  fileparse $fileName;
 
 # define files name
-$ctd_file     = lc $cycle_mesure .'-all.ctd';
-$hdr_file = lc $cycle_mesure.'-all.ctd' if defined $xml or $ascii;
-$xml_ctd_file = lc $cycle_mesure .'-all_ctd.xml'if defined $xml;
-$odv_file     = lc $cycle_mesure .'-all_ctd_odv.txt' if defined $odv;
+$ctd_file     = lc $cycle_mesure .$ctdall.'_ctd';
+$hdr_file = lc $cycle_mesure.$ctdall.'.ctd' if defined $xml or $ascii;
+$xml_ctd_file = lc $cycle_mesure .$ctdall.'_ctd.xml'if defined $xml;
+$odv_file     = lc $cycle_mesure .$ctdall.'_ctd_odv.txt' if defined $odv;
+
+#print STDERR $xml_ctd_file . "\n";
 
 # get variables liste order from header
 @header = split /\s+/, $header;
@@ -823,6 +859,13 @@ $odv_file     = lc $cycle_mesure .'-all_ctd_odv.txt' if defined $odv;
 my @tmp = @format;
 foreach my $key (@header) {
   $format{$key} = shift @tmp;
+}
+# build list for odv from config.ini 
+@odv_hdr  = split /\s+/, $odv_hdr;
+@odv_unit = split /\s+/, $odv_unit;
+@tmp = @odv_unit;
+foreach my $key (@odv_hdr) {
+  $odv_hdr{$key} = shift @tmp;
 }
 
 # variables locales
@@ -877,12 +920,14 @@ if (defined $odv) {
   &entete_odv;
 }
 if (defined $ascii) {     
- open( CTD_FILE, "+> $ctd_file" ) or die "Can't open file : $ctd_file\n";
- open( HDR_FILE, "+> $hdr_file" ) or die "Can't open file : $hdr_file\n";
+  open( CTD_FILE, "+> $ctd_file" ) or die "Can't open file : $ctd_file\n";
+  open( HDR_FILE, "+> $hdr_file" ) or die "Can't open file : $hdr_file\n";
+  push @files_descr, \*CTD_FILE;
 }
 
 if (defined $xml) {     
- open( XML_CTD_FILE, "+> $xml_ctd_file" ) or die "Can't open file : $xml_ctd_file\n";
+  open( XML_CTD_FILE, "+> $xml_ctd_file" ) or die "Can't open file : $xml_ctd_file\n";
+  push @files_descr, \*XML_CTD_FILE;
 }
 # Les paramètres supplémentaires
 #DOX2;DISSOLVED OXYGEN;micromole/kg;0;450;%7.3lf;
@@ -895,12 +940,6 @@ if (defined $xml) {
        
 # definition des entetes
 $header_file = "$cycle_mesure  $plateforme  $institut  $ctdType  $ctdSn  $pi\n";
-# definitions des formats
-$format_profils = "%05d %4d %9.5f %8.5f %9.5f %s %5.4g 1e36 1e36 1e36 1e36 1e36 1e36 1e36 1e36 1e36 1e36 1e36 1e36 1e36 1e36 1e36\n";
-#$format_data =  "%05d %4d %6.1f %10.6f  %7.4f %7.4f  %7.4f %7.4f %7.5f %7.5f  %6.3f %6.3f %6.3f %6.3f %6.5g  %7.3f %7.3f %+5.3f %+5.3f %+7.5f %+7.5f %4d\n";
-#definitions de la liste des variables des les fichiers de sorties (ne marche pas, a voir ...
-#$variables_liste = '$station,$i,$DEPH,$ETDD,$TE01,$TE02,$PSA1,$PSA2,$CND1,$CND2,$DEN1,$DEN2,$SVEL,$FLU2,$LGHT,$DO12,$DO22,$DOV1,$DOV2,$DVT1,$DVT2';
-#$decode_variables = 'undef,$ETDD,$PRES,$DEPH,$TE01,$TE02,$CND1,$CND2,$DOV1,$DOV2,$DVT1,$DVT2,$FLU2,$LGHT,$DO12,$DO22,$nbin,$PSA1,$PSA2,$DEN1,$DEN2,$SVEL,undef';
 
 # ecriture des entetes
 if ( defined $xml ) {
@@ -985,19 +1024,14 @@ for( my $i = 0; $i <= $#ARGV; $i++ ){
       $long_pos = &positionDeci($long_deg, $long_min, $long_hemi);
     }
   }
-
-
-  # ecriture de l'entete (pression = -1, avec 5 decimales
-  if (defined $ascii) {        
-    printf CTD_FILE $format_profils, 
+  # write header in each file open with Z value -1
+  for my $file (@files_descr) {
+     printf $file "%05d  %d %7.3f %7.4f %8.4f %s", 
     $PRFL, $code, $julien, $lat_pos, $long_pos, &dateFormat($time,"%Y%m%d%H%M%S"), $bottom_depth;
+     # and complement empty column with fill value 1e36
+     printf  $file "  1e36" x (@header -6) . "\n";
   }
-  if (defined $xml) {        
-   printf XML_CTD_FILE "%05d  %d %7.3f %7.4f %8.4f %s", 
-    $PRFL, $code, $julien, $lat_pos, $long_pos, &dateFormat($time,"%Y%m%d%H%M%S"), $bottom_depth;
-    printf XML_CTD_FILE "  1e36" x (@header -6);
-    printf XML_CTD_FILE "\n";
-  }
+
   close DATA_FILE;
   # on lit les fichiers d'extension .cnv contenant les donnees
   # attention aux majuscules/minuscules !!!!!
@@ -1023,61 +1057,41 @@ for( my $i = 0; $i <= $#ARGV; $i++ ){
      # mets toutes les valeurs inferieur a Pres jusqu'en surface si 
       # option --top
       if (($lines == 0) && defined $top) {
+	my $nbin = $data{'NBIN'};
         $data{'NBIN'} = 99999;    
         my $first_depth = $data{'PRES'};	
-        for( my $i = 0; $i < $first_depth; $i++ ) {
+        for( my $i = 0; $i <= $first_depth; $i++ ) {
 	  $data{'PRES'} = $i;
-          if (defined $ascii) {
+	  if ($i == $first_depth ) { $data{'NBIN'} = $nbin };
+          for my $file (@files_descr) {
             foreach my $key (@header) {
-  	      printf CTD_FILE "$format{$key} ",  $data{$key};
+  	      printf $file "$format{$key} ",  $data{$key};
             }
-            printf CTD_FILE "\n";
-          }
-          if (defined $xml) {
-             foreach my $key (@header) {
-  	      printf XML_CTD_FILE "$format{$key} ",  $data{$key};
-            }
-            printf XML_CTD_FILE "\n";
+            printf $file "\n";
           }
         }
       } 
       else {
-        #$T68 = $T0 * 1.00024; 
-        #$sndvel=&sw_svel($S0,$T68,$PRES);
-        if (defined $ascii) {
+        for my $file (@files_descr) {
             foreach my $key (@header) {
-  	      printf CTD_FILE "$format{$key} ",  $data{$key};
+  	      printf $file "$format{$key} ",  $data{$key};
             }
-            printf CTD_FILE "\n";
-        }
-        if (defined $xml) {
-             foreach my $key (@header) {
-  	      printf XML_CTD_FILE "$format{$key} ",  $data{$key};
-            }
-            printf XML_CTD_FILE "\n";
+            printf $file "\n";
         }
         if (defined $odv) {
-#          printf ODV_FILE "%s\t%05d\t%s\t%s\t%8.4f\t%7.4f",
-#            $cycle_mesure, $PRFL, $type_odv, 
-#	    &dateFormat($time, "%Y-%m-%dT%H:%M:%S"),
-#            $long_pos, $lat_pos;
-#	  printf ODV_FILE ($bottom_depth > 1e35) ? "\t" : "\t%6.1f", $bottom_depth;
-#          printf ODV_FILE "\t%6.1f",   $PRES;
-#          printf ODV_FILE ($TE01 > 1e35) ? "\t" : "\t%6.6g", $TE01;
-#          printf ODV_FILE ($TE02 > 1e35) ? "\t" : "\t%6.6g", $TE02;
-#          printf ODV_FILE ($PSA1 > 1e35) ? "\t" : "\t%6.6g", $PSA1;
-#          printf ODV_FILE ($PSA2 > 1e35) ? "\t" : "\t%6.6g", $PSA2;
-#          printf ODV_FILE ($DEN1 > 1e35) ? "\t" : "\t%6.6g", $DEN1;
-#          printf ODV_FILE ($DEN2 > 1e35) ? "\t" : "\t%6.6g", $DEN2;
-#          printf ODV_FILE ($SVEL > 1e35) ? "\t" : "\t%7.6g", $SVEL;
-#          printf ODV_FILE ($DO12 > 1e35 || $DO12 == -9.99e-29) ? "\t" : "\t%7.6g", $DO12;
-#          printf ODV_FILE ($DO22 > 1e35 || $DO12 == -9.99e-29 ) ? "\t" : "\t%7.6g", $DO22;
-#          printf ODV_FILE ($FLU2 > 1e35) ? "\t" : "\t%7.4g",   $FLU2;
-#         printf ODV_FILE ($TUR3 > 1e35) ? "\t" : "\t%7.6g\n", $LGHT;
+          printf ODV_FILE "%s\t%05d\t%s\t%s\t%8.4f\t%7.4f",
+            $cycle_mesure, $PRFL, $type_odv, 
+	    &dateFormat($time, "%Y-%m-%dT%H:%M:%S"),
+            $long_pos, $lat_pos;
+          printf ODV_FILE ($bottom_depth > 1e35) ? "\t" : "\t%6.1f", $bottom_depth;
+          foreach my $key (@odv_hdr) {
+            printf ODV_FILE ($data{$key} > 1e35 || $data{$key} == -9.99e-29) ?
+	      "\t" : "\t$format{$key}", $data{$key};
+          }
+	  printf ODV_FILE "\n";
         }			
       }
       # re-initialise les donnees lues sauf $pres utilise pour le fichier d'entete
-
       $lines++;
     }
   }
@@ -1098,10 +1112,7 @@ for( my $i = 0; $i <= $#ARGV; $i++ ){
       $cycle_mesure, $PRFL,$type_odv, &dateFormat($time,"%m/%d/%Y %H:%M"), 
       $lat_pos, $long_pos, $data{'PRES'}, $bottom_depth if defined $ECHO;    
   }
-  foreach my $key (@header) {
-     printf XML_CTD_FILE "$format{$key} ",  $data{$key};
-  }
-  printf XML_CTD_FILE "\n";
+ 
   $data{'PRES'} =  $bottom_depth = 1e36;	  
   $. = 0; # remet le compteur de ligne a zero
   $lines = 0;
