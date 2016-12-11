@@ -33,15 +33,6 @@
 % 
 % see example cdl file from:
 % http://ferret.wrc.noaa.gov/noaa_coop/coop_cdf_example.html
-%  
-% -------------------------------------------------------------------------------
-%                         -- USING THE INTERFACE --
-% -------------------------------------------------------------------------------
-% 
-% In order to launch the tests of datagui.tests, you can use the graphic interface
-% entering the following command line : 
-% 
-% 	>> datagui.tests.interface;
 % 
 % 
 % -------------------------------------------------------------------------------
@@ -54,9 +45,9 @@
 % # To run all the tests of this package in MATLAB, enter the following 
 % instruction :
 % 
-% 	>> runtests datagui.tests;
+% 	>> runxunit datagui.tests;
 %  
-% # >> runtests datagui.tests '-verbose'
+% # >> runxunit datagui.tests '-verbose'
 % 
 % displays the name and result, result, and time taken for each test case 
 % to the Command Window
@@ -64,7 +55,7 @@
 % # To run all the tests on a particular class, for example hashtable, 
 % you can enter :
 % 
-% 	>> runtests datagui.tests.hashtable;
+% 	>> runxunit datagui.tests.hashtable;
 % 
 % 
 % # To run a particular test, for example testValues of the map class, 
