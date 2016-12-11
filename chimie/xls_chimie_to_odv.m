@@ -91,7 +91,7 @@ for k = sheets
         
     % save all data to ODV file, if data is NaN, print tab
     % ----------------------------------------------------
-    fprintf( fid_odv, '%s\t%s\tB\t%s\t%8.4f\t%7.4f\t\t', ...
+    fprintf( fid_odv, '%s\t%s\tB\t%s\t%+8.3f\t%+7.3f\t\t', ...
       cruise, station, date, longitude, latitude);
     if isnan(DEPTH(j))
       fprintf( fid_odv, '\t');
@@ -221,7 +221,7 @@ fclose(fid_odv);
       fprintf(fid, '//ODV Spreadsheet file : %s\n', odv_filename);
       fprintf(fid, '//Data treated : %s\n', today);
       fprintf(fid, '//<InstrumentType>Chemical bottle analysis</InstrumentType>\n');
-      fprintf(fid, '//<Source>%s/%s</Sources>\n', pwd, cruise);
+      fprintf(fid, '//<Source>%s</Sources>\n', xls.file);
       fprintf(fid, '//<DataType>Bottles</DataType>\n');
       fprintf(fid, '//<Creator>Jacques.Grelet@ird.fr</Creator>\n');
       fprintf(fid, '//\n');
