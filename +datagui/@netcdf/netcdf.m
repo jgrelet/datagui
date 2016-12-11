@@ -40,67 +40,71 @@
 % 	AutoForm:      false
 % 	Filename:         'foo.nc'
 %
-% 	Dimensions    	10  [struct]
+% 	Dimensions    	 3  [struct]
 % 	Variables     	48  [struct]
 % 	Attributes    	21  [struct]
 %
-% >> keys(nc.Dimensions)'
+% >> nc.Dimensions
+% 
+%      TIME: [1x1 struct]
+%     DEPTH: [1x1 struct]
+% 
+% nc.Dimensions is a structure, syntax as :
+%   keys(nc.Dimensions) is not valid, use instead:
 %
-%     'LATITUDE'
-%     'LEVEL'
-%     'LONGITUDE'
-%     'N1'
-%     'POSITION'
-%     'STRING14'
-%     'STRING256'
-%     'STRING4'
-%     'STRING8'
+% >> keys(nc, 'Dimensions')'
+%
 %     'TIME'
+%     'DEPTH'
 %
+% >> keys(nc, 'Variables')'
+% 
+%     'PROFILE'
+%     'TIME'
+%     'LATITUDE'
+%     'LONGITUDE'
+%     'PRES'
+%     'DEPTH'
+%     'TEMP'
+%     'PSAL'
+%     'DENS'
+%     'SVEL'
+%     'DOX2'
 %
 % >> nc.Attributes
 %
-% >> keys(nc.Attributes)'
+% >> keys(nc, 'Attributes')'
 %
-%     'author'
-%     'call_sign'
-%     'comment'
-%     'conventions'
-%     'cycle_mesure'
-%     'data_assembly_center'
-%     'data_mode'
-%     'data_restriction'
-%     'data_type'
-%     'netcdf_version'
-%     'number_instrument'
-%     'pi_name'
+%                data_type: [1x1 struct]
+%             cycle_mesure: [1x1 struct]
+%             project_name: [1x1 struct]
+%          plateforme_name: [1x1 struct]
+%      time_coverage_start: [1x1 struct]
+%        time_coverage_end: [1x1 struct]
+%                 timezone: [1x1 struct]
 % ...
 %
 % >> nc.Attributes.cycle_mesure
 %
-%     data__: 'PIRATA-FR19'
+%     data__: 'PIRATA-FR25'
 %
 % access to variable :
 %
 %  >> nc.Variables.TEMP
 %
-%         long_name: 'SEA WATER TEMPERATURE'
-%     standard_name: 'sea_water_temperature'
-%             units: 'degree_Celsius'
-%         valid_min: -1.5000
-%         valid_max: 38
-%            format: '%6.3lf'
-%        FillValue_: 99999
-%        resolution: 0.0010
-%           comment: 'Ocean temperature'
-%        coordinate: 'TIME'
+%     standard_name: 'TEMP'
+%         long_name: 'sea temperature'
+%             units: 'Celsius degree'
+%         valid_min: 0
+%         valid_max: 30
+%        FillValue_: 1.0000e+36
 %            type__: 'float'
-%            data__: [31x2049 single]
-%       dimension__: {'TIME'  'LEVEL'}
+%            data__: [4x2023 single]
+%       dimension__: {'TIME'  'DEPTH'}
 %
 % >> nc.Variables.TEMP.long_name
 %
-% ans = SEA WATER TEMPERATURE
+% ans = 'sea temperature'
 %
 % Create NetCDF file with template:
 %
@@ -120,10 +124,9 @@
 %
 % Read data from file and set following example:
 %
-% >> nc.Attributes.CYCLE_MESURE.data__  = 'TOUC0702';
-% >> nc.Attributes.PLATFORM_NAME.data__ = 'TOUCAN';
-% >> nc.Variables.REFERENCE_DATE_TIME.data__ = '19500101000000';
-% >> nc.Variables.DAYD.data__ = [2.101736111111113];
+% >> nc.Attributes.cycle_mesure.data__  = 'TOUC0702';
+% >> nc.Attributes.plateforme_name.data__ = 'TOUCAN';
+% >> nc.Variables.TIME.data__ = [2.101736111111113];
 %
 % add a new Dimensions :
 %
