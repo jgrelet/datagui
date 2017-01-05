@@ -10,12 +10,12 @@
 %     >> t = datagui.tests.netcdf('testMethod');
 %     >> t.run
 % or
-%     >> runtests datagui.tests.netcdf:testMethod
-%     >> runtests datagui.tests.netcdf -verbose
+%     >> runxunit datagui.tests.netcdf:testMethod
+%     >> runxunit datagui.tests.netcdf -verbose
 %
 % For example run all tests for datagui.netcdf :
 %
-%     >> runtests datagui.tests.netcdf
+%     >> runxunit datagui.tests.netcdf
 %     Test suite: datagui.tests.netcdf
 %     Test suite location: +datagui/+tests/@netcdf/netcdf.m
 %     09-Sep-2011 13:49:32

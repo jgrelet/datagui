@@ -1,17 +1,30 @@
-%% Classdef definition
-% -------------------
+% datagui.graphics.multiProfils
+%
+% example:
+% d = datagui.graphics.multiProfils('OS_PIRATA-FR25_CTD.nc')
+% d=datagui.graphics.multiProfils('OS_PIRATA-FR25_CTD.nc','parameters',...
+%  {'PRES','TEMP','PSAL','DOX2','FLU2'},'style',{'k-','b-','r-','m-','g-'});
+%
+% d.next
+% d.last
+%
+% Classdef definition,
+% inherit from abstract class datagui.graphics.graph
+% updateGraph and draw methods must be defined here
+% -----------------------------------------------------------------------
 classdef (CaseInsensitiveProperties = true) multiProfils < datagui.graphics.graph
   
   % private properties definitions
   % --------------------------------
   % properties (Access = private, Hidden)
   % only for debug
-  properties %(Access = private)
-  
-    Events = [];
-    listeners = struct();
+  properties %(Access = private) 
+    % Events = [];
+    % event     = datagui.graphics.parametersChoice
+    % listeners = struct();
     roscop;
-    keys                  = {'TEMP','PSAL'};
+    parameters            = {'PRES','TEMP','PSAL','DOX2'};
+    style                 = {'k-','b-','r-','m','g-'};
     profile               = 1;
     
     % get pathname
@@ -29,11 +42,6 @@ classdef (CaseInsensitiveProperties = true) multiProfils < datagui.graphics.grap
     linestyle             = {'-','--',':','-.','none'};
     visible               = 'on';
     label_fontsize        = 7;
-    
-  end
-  
-  properties (Access = public, SetObservable)
-    
   end
   
   properties %(Access = private, SetObservable)
@@ -41,10 +49,19 @@ classdef (CaseInsensitiveProperties = true) multiProfils < datagui.graphics.grap
     hdl_panel_plot;
     hdl_panel_select;
     hdl_panel_action;
+    hdl_panel_line_action;
+    hdl_panel_parameters_action;
+    hdl_parametersChoice;
+    hdl_panel_move_profile_action;
     hdl_date;
     hdl_latitude;
     hdl_longitude;
-    
+    hdl_pushbutton_next;
+    hdl_pushbutton_last;
+    hdl_pushbutton_run;
+  end
+  
+  properties (Access = public, SetObservable)
   end
   
   % public methods
@@ -82,9 +99,12 @@ classdef (CaseInsensitiveProperties = true) multiProfils < datagui.graphics.grap
             property_argin = property_argin(3:end);
             switch lower(property)
               case {'param', 'params','parameter','parameters'}
-                self.keys = value;
+                self.parameters = value;
+              case 'style'
+                self.style = value;
               case {'profile', 'cast', 'number'}
-                self.profile = value;              otherwise
+                self.profile = value;              
+              otherwise
                 error('datagui:graphics:multiprofils', 'Unknown property: "%s"', property);
             end
           end
@@ -112,7 +132,7 @@ classdef (CaseInsensitiveProperties = true) multiProfils < datagui.graphics.grap
         self.roscop = datagui.dynaload('code_roscop.json', 'echo', false);
         
         % call function that define the GUI
-        self.setUi;           
+        self.setUi;
       else
         self.hdl_figure = figure( hdl );
       end
@@ -120,8 +140,16 @@ classdef (CaseInsensitiveProperties = true) multiProfils < datagui.graphics.grap
       % draw profiles
       self.draw;
       
+      addlistener(datagui.graphics.parametersChoice, 'selectedParameters', ...
+        {@selectedHandler});
+      
       
     end % end of constructor
+    
+    function selectedHandler(eventSrc, eventData, self)
+      disp('je passe dans selectedHandler');
+      %disp(eventData.parameters);
+    end
     
     % destructor
     % ----------
@@ -151,7 +179,7 @@ classdef (CaseInsensitiveProperties = true) multiProfils < datagui.graphics.grap
       if ~isempty(self.Primitive)
         %delete(self.Primitive);
         delete(findobj('-regexp','Tag', 'MULTIPLOTX'));
-        delete(findobj('-regexp','Tag', '[AXE]_'));
+        delete(findobj('-regexp','Tag', 'AXE_'));
       end
       % set axe in the rigth panel
       self.Primitive = axes('parent', self.hdl_panel_plot);
@@ -160,34 +188,43 @@ classdef (CaseInsensitiveProperties = true) multiProfils < datagui.graphics.grap
       % move axe down to get more place
       set(self.Primitive,...
         'Position',[axePos(1) axePos(2)-0.05 axePos(3) axePos(4)+0.05]);
-      
-      % plot the first variable
-      y = self.keys{1};
-      key = self.keys{2};
+      % process the first variable
+      y = self.hdl_parametersChoice.selected{1};
+      key = self.hdl_parametersChoice.selected{2};
+      % set axes limits
       set(self.Primitive, ...
         'Xlim', [min(self.nc.Variables.(key).data__(self.profile,:)) ...
         max(self.nc.Variables.(key).data__(self.profile,:))] );
+      % plot data with rigth color
       hdl_line = plot(self.Primitive, self.nc.Variables.(key).data__(self.profile,:), ...
-        self.nc.Variables.(y).data__(self.profile,:));
+        self.nc.Variables.(y).data__(self.profile,:), self.style{2});
+      % reverse graph and set xaxis to the rigth color
       set(self.Primitive, 'ydir', 'reverse', 'FontSize', self.label_fontsize, ...
-        'Tag', strcat('AXE_', key));
+        'xcolor', get(hdl_line, 'color'), 'Tag', strcat('AXE_', key));
+      % set tag
       set(hdl_line, 'Tag', 'MULTIPLOTX');
+      % write title
+      title({['\rm\fontsize{12}\bf', self.nc.Attributes.cycle_mesure.data__];...
+        ['\rm\fontsize{9}Profile: ', num2str(self.profile)]});
       
       % display labels on axes
       ylabel(self.roscop.code_roscop.(y).long_name, 'FontSize', self.label_fontsize);
       xlabel(self.roscop.code_roscop.(key).long_name, 'FontSize', self.label_fontsize);
       
       % plot the last variables with multiPlotX
-      for i = 3 : length(self.keys)
-        key = self.keys{i};
+      for i = 3 : length(self.hdl_parametersChoice.selected)
+        key = self.hdl_parametersChoice.selected{i};
         
         [~, axe_handle, floating_axe_handle] = ...
           datagui.graphics.multiPlotX(self.nc.Variables.(key).data__(self.profile,:), ...
-          self.nc.Variables.(y).data__(self.profile,:), 'handle', self.hdl_panel_plot);
+          self.nc.Variables.(y).data__(self.profile,:), ...
+          'handle', self.hdl_panel_plot, 'style',self.style{i});
+        
         set(axe_handle, 'ydir', 'reverse', 'Tag', strcat('AXE_', key));
         set(floating_axe_handle,'Xlim', [min(self.nc.Variables.(key).data__(self.profile,:)) ...
-          max(self.nc.Variables.(key).data__(self.profile,:))], 'FontSize', self.label_fontsize,...
-          'Tag', strcat('FLOAT_AXE_', key));
+          max(self.nc.Variables.(key).data__(self.profile,:))], ...
+          'FontSize', self.label_fontsize, 'Tag', strcat('FLOAT_AXE_', key));
+        
         xlabel(self.roscop.code_roscop.(key).long_name, 'FontSize', self.label_fontsize);
       end
       
@@ -198,7 +235,7 @@ classdef (CaseInsensitiveProperties = true) multiProfils < datagui.graphics.grap
       set(self.hdl_longitude, 'string', dd2dm(self.nc.Variables.(self.lon_name).data__(self.profile), 1));
     end
     
-    % implement zoom from graph interface 
+    % implement zoom from graph interface
     % -----------------------------------
     function zoom(~, ~, self, factor)
       zoom(self.hdl_axe, factor);
@@ -206,24 +243,23 @@ classdef (CaseInsensitiveProperties = true) multiProfils < datagui.graphics.grap
       %       ylim = get(self.hdl_axe, 'Ylim');
       %       [LONGITUDE,LATITUDE]=m_ll2xy(xlim(1),ylim(1))
       drawnow;
-    end    
+    end
     
-    % implement updateGraph from graph interface 
+    % implement updateGraph from graph interface
     % ------------------------------------------
     function updateGraph(self)
-      if isempty(self.Primitive)
+      
+      % updateGraph is call when netcdf file is read, and draw fail
+      % if GUI is not set
+      if ~isempty(self.Primitive) || ~isempty(self.hdl_figure)
         self.draw;
-      end
-     %% add here !!!!
-    end
+      end 
+    end % end of updateGraph
     
     % set un new profile number
     % -------------------------
     function set.profile(self, profile)
       self.profile = profile;
-      if ~isempty(self.hdl_figure)
-        self.updateGraph;
-      end
     end
     
     % go to next profile
@@ -231,9 +267,12 @@ classdef (CaseInsensitiveProperties = true) multiProfils < datagui.graphics.grap
     function next(self)
       if self.profile + 1 <= length(self.nc.Variables.PROFILE.data__)
         self.profile = self.profile + 1;
+        set(self.hdl_pushbutton_next, 'ForegroundColor', 'g');
+        set(self.hdl_pushbutton_last, 'ForegroundColor', 'g');
         self.updateGraph;
       else
         fprintf(1, 'Maximum profile %d reach\n', self.profile);
+        set(self.hdl_pushbutton_next, 'ForegroundColor', 'r');
       end
     end
     
@@ -242,9 +281,12 @@ classdef (CaseInsensitiveProperties = true) multiProfils < datagui.graphics.grap
     function last(self)
       if self.profile - 1 > 0
         self.profile = self.profile - 1;
+        set(self.hdl_pushbutton_last, 'ForegroundColor', 'g');
+        set(self.hdl_pushbutton_next, 'ForegroundColor', 'g');
         self.updateGraph;
       else
         fprintf(1, 'Minimum profile %d reach\n', self.profile);
+        set(self.hdl_pushbutton_last, 'ForegroundColor', 'r');
       end
     end
     
@@ -279,7 +321,7 @@ classdef (CaseInsensitiveProperties = true) multiProfils < datagui.graphics.grap
         'FontSize',8, 'Position',[0 0 1 .2]);
       self.hdl_panel_action = uipanel('Parent',self.hdl_figure,...
         'FontSize',8, 'Position',[.8 .2 .2 .8], 'Tag', 'Tag_hdl_action');
-      
+         
       % display the profile date and position
       uicontrol('Parent',self.hdl_panel_select,...
         'Style','text',...
@@ -322,10 +364,12 @@ classdef (CaseInsensitiveProperties = true) multiProfils < datagui.graphics.grap
       
       % dynamicaly create the parameters scale for popup menus
       % ------------------------------------------------------
-      for i = 1 : length(self.keys)
-        key = self.keys{i};
-        string = self.roscop.code_roscop.(key).popup_string;
-        % definition du nom du paramètre
+      for i = 1 : length(self.parameters)
+        key = self.parameters{i};
+        
+        string = strcat('auto|', self.roscop.code_roscop.(key).popup_string);
+        
+        % construct filed that display min and max value for parameter
         uicontrol('Parent',self.hdl_panel_select,...
           'Style','text',...
           'Units','normalized',...
@@ -333,14 +377,14 @@ classdef (CaseInsensitiveProperties = true) multiProfils < datagui.graphics.grap
           'FontWeight','bold',...
           'String',key,...
           'HorizontalAlignment','left');
-        % valeur mini
+        % min value
         uicontrol('Parent',self.hdl_panel_select,...
           'Style','edit',...
           'Units','normalized',...
           'Position',[.02+((i-1)*.12) .51 .1 .11],...
           'String',min(min(self.nc.Variables.(key).data__)),...
           'HorizontalAlignment','left');
-        % valeur maxi
+        % max value
         uicontrol('Parent',self.hdl_panel_select,...
           'Style','edit',...
           'Units','normalized',...
@@ -348,30 +392,33 @@ classdef (CaseInsensitiveProperties = true) multiProfils < datagui.graphics.grap
           'String',max(max(self.nc.Variables.(key).data__)),...
           'HorizontalAlignment','left');
         
-        % definition des popup pour panel self.hdl_panel_select
+        % construct popupmenu for scale
         uicontrol('Parent',self.hdl_panel_select,...
           'Units','normalized',...
           'Position',[.02+((i-1)*.12) .19 .10 .13],...
           'Style','popupmenu',...
           'String',string,...
           'Value', 1,...
-          'Tag',['popupmenu_' self.keys{i}],...
+          'Tag',['popupmenu_' self.parameters{i}],...
           'BackgroundColor','w',...
           'Callback',{@callback_plot_select, self, key});
       end
       
+      % child panel where we change line aspect
+      self.hdl_panel_line_action = uipanel(...
+        'Parent',self.hdl_panel_action,...
+        'FontSize',8, 'Position',[0 0.7 1 .3]);
+      
       % select line marker type
-      uicontrol('Parent',self.hdl_panel_action,...
+      uicontrol('Parent',self.hdl_panel_line_action,...
         'Style','text',...
         'Units','normalized',...
-        'Position',[.15 .93 .75 .05],...
-        'String','Marqueur',...
+        'Position',[.15 .90 .75 .1],...
+        'String','Marker type',...
         'HorizontalAlignment','left');
-      
-      
-      uicontrol('Parent',self.hdl_panel_action,...
+      uicontrol('Parent',self.hdl_panel_line_action,...
         'Units','normalized',...
-        'Position',[.15 .9 .75 .05],...
+        'Position',[.15 .80 .75 .1],...
         'Style','popupmenu',...
         'String', self.markertype_label,...
         'Value',self.markertype_value,...
@@ -380,17 +427,15 @@ classdef (CaseInsensitiveProperties = true) multiProfils < datagui.graphics.grap
         'Callback',{@select_markertype_callback, self});
       
       % select line marker size
-      uicontrol('Parent',self.hdl_panel_action,...
+      uicontrol('Parent',self.hdl_panel_line_action,...
         'Style','text',...
         'Units','normalized',...
-        'Position',[.15 .86 .75 .05],...
-        'String','Marqueur',...
+        'Position',[.15 .60 .75 .1],...
+        'String','Marker size',...
         'HorizontalAlignment','left');
-      
-      
-      uicontrol('Parent',self.hdl_panel_action,...
+      uicontrol('Parent',self.hdl_panel_line_action,...
         'Units','normalized',...
-        'Position',[.15 .83 .75 .05],...
+        'Position',[.15 .5 .75 .1],...
         'Style','popupmenu',...
         'String', self.markersize_label,...
         'Value',self.markersize_value,...
@@ -399,22 +444,71 @@ classdef (CaseInsensitiveProperties = true) multiProfils < datagui.graphics.grap
         'Callback',{@select_markersize_callback, self});
       
       % select line style
-      uicontrol('Parent',self.hdl_panel_action,...
+      uicontrol('Parent',self.hdl_panel_line_action,...
         'Style','text',...
         'Units','normalized',...
-        'Position',[.15 .79 .75 .05],...
-        'String','Style',...
-        'HorizontalAlignment','left');
-      
-      uicontrol('Parent',self.hdl_panel_action,...
+        'Position',[.15 .3 .75 .1],...
+        'String','Marker style',...
+        'HorizontalAlignment','left');      
+      uicontrol('Parent',self.hdl_panel_line_action,...
         'Units','normalized',...
-        'Position',[.15 .76 .75 .05],...
+        'Position',[.15 .2 .75 .1],...
         'Style','popupmenu',...
         'String', self.linestyle_label,...
         'Value',self.linestyle_value,...
         'Tag','popupmenu_action_select_line_style',...
         'BackgroundColor','w',...
         'Callback',{@select_line_style_callback, self});
+      
+      % child panel where are radiobutton parameters
+      self.hdl_panel_parameters_action = uipanel(...
+        'Parent',self.hdl_panel_action,...
+        'FontSize',8, 'Position',[0 .15 1 .55]);
+      
+      % call class datagui.graphics.parametersChoice
+      self.hdl_parametersChoice = ...
+        datagui.graphics.parametersChoice(self.hdl_panel_parameters_action,...
+        true, self.parameters);
+   
+      
+      % child panel where we change line aspect
+      self.hdl_panel_move_profile_action = uipanel(...
+        'Parent',self.hdl_panel_action,...
+        'FontSize',8, 'Position',[0 0 1 .15]);
+      
+      % Next profile
+      self.hdl_pushbutton_next = uicontrol(...
+        'Parent',self.hdl_panel_move_profile_action,...
+        'Units','normalized',...
+        'Style','pushbutton',...
+        'Position',[.05 .68 .9 .30],...
+        'String','Next profile',...
+        'Visible', 'on', ...
+        'ForegroundColor', 'g',...
+        'Tag','pushbutton_action_next',...
+        'Callback', {@pushbutton_next_callback, self});
+      
+      % Last profile
+      self.hdl_pushbutton_last = uicontrol(...
+        'Parent',self.hdl_panel_move_profile_action,...
+        'Units','normalized',...
+        'Style','pushbutton',...
+        'Position',[.05 .35 .9 .30],...
+        'String','Last profile',...
+        'ForegroundColor', 'r',...
+        'Tag','pushbutton_action_last',...
+        'Callback', {@pushbutton_last_callback, self});
+      
+      % run over profiles
+      self.hdl_pushbutton_run = uicontrol(...
+        'Parent',self.hdl_panel_move_profile_action,...
+        'Units','normalized',...
+        'Style','pushbutton',...
+        'Position',[.05 .02 .9 .30],...
+        'String','Run profile',...
+        'ForegroundColor', 'r',...
+        'Tag','pushbutton_action_run',...
+        'Callback', {@pushbutton_run_callback, self});
       
     end % of of setUi
     
@@ -423,18 +517,24 @@ classdef (CaseInsensitiveProperties = true) multiProfils < datagui.graphics.grap
     function callback_plot_select(src, ~, self, key)
       
       value = get(src, 'Value');
-      p = regexp(self.roscop.code_roscop.(key).popup_string,'(\d+)\s(\d+)|','tokens');
+      popup_string = get(src, 'string');
+      
+      p = regexp(popup_string(value,:),'(\d+)\s(\d+)|','tokens');
+      if isempty(p)  % auto
+        scale = [min(min(self.nc.Variables.(key).data__)) ...
+                 max(max(self.nc.Variables.(key).data__))]; 
+      else
+        scale = [str2double(p{1}{1}) str2double(p{1}{2})];
+      end
       if strcmp(key,'DEPH') || strcmp(key,'DEPTH') || ...
           strcmp(key,'PRES') || strcmp(key,'HEIG')
         hdl_axe = findobj('-regexp','Tag', '[AXE]_');
-        set(hdl_axe, 'YMinorTick', 'on', ...
-          'YLim', [str2double(p{value}{1}) str2double(p{value}{2})]);
+        set(hdl_axe, 'YMinorTick', 'on', 'YLim', scale);
       else
         hdl_float = findobj('Tag', strcat('FLOAT_AXE_', key));
         hdl_axe = findobj('Tag', strcat('AXE_', key));
-        set(hdl_axe, 'XMinorTick', 'on', 'box', 'on', ...
-          'XLim', [str2double(p{value}{1}) str2double(p{value}{2})]);
-        set(hdl_float, 'XMinorTick', 'on', 'XLim', [str2double(p{value}{1}) str2double(p{value}{2})]);
+        set(hdl_axe, 'XMinorTick', 'on', 'box', 'on', 'XLim', scale);
+        set(hdl_float, 'XMinorTick', 'on', 'XLim', scale);
         
       end
     end
@@ -479,7 +579,25 @@ classdef (CaseInsensitiveProperties = true) multiProfils < datagui.graphics.grap
       
     end  % end of select_markertype_callback
     
-    
+    % move to next profile callback
+    % ---------------------------------------
+    function pushbutton_next_callback(~, ~, self)
+      
+      % move to next profile
+      % ----------------------------
+      self.next;
+      
+    end  % pushbutton_last_callback
+
+    % move to last profile callback
+    % ---------------------------------------
+    function pushbutton_last_callback(~, ~, self)
+      
+      % move to next profile
+      % ----------------------------
+      self.last;
+      
+    end  % pushbutton_last_callback    
     
   end  % end of private method
   

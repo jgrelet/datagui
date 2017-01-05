@@ -10,12 +10,12 @@
 %     >> t = datagui.tests.hashtable('testMethod');
 %     >> t.run
 % or
-%     >> runtests datagui.tests.hashtable:testMethod
-%     >> runtests datagui.tests.hashtable -verbose
+%     >> runxunit datagui.tests.hashtable:testMethod
+%     >> runxunit datagui.tests.hashtable -verbose
 %
 % For example run all tests for datagui.hashtable :
 %
-%     >> runtests datagui.tests.hashtable
+%     >> runxunit datagui.tests.hashtable
 %     Test suite: datagui.tests.hashtable
 %     Test suite location: +datagui/+tests/@hashtable/hashtable.m
 %     09-Sep-2011 13:49:32

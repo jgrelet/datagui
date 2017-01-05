@@ -39,8 +39,18 @@ classdef graph < handle
     
   end
   
+  % public methods
+  % ---------------
   methods
-    function set.nc(self, new_nc)
+    function set.nc(self, netcdf_file)
+      self.nc = netcdf_file;
+      self.validate_netcdf;
+    end  % end of set.nc()
+    
+    % used to fill class properties from NatCDF files format
+    % and dynamically walk inside netcdf instance structure 
+    % ------------------------------------------------------
+    function validate_netcdf(self)
       
       % test if there is attributes and variables in base workspace
       % -----------------------------------------------------------
@@ -50,7 +60,7 @@ classdef graph < handle
         % call evalin in base workspace to clear the variable
         % ----------------------------------------------------------------
         for i = 1 : length(self.list_assign_vars)
-         %evalin('base', ['clear(' '''self.list_assign_vars{i}''' ')']);
+          %evalin('base', ['clear(' '''self.list_assign_vars{i}''' ')']);
           evalin('base', ['clear ' '''self.list_assign_vars{i}''']);
         end
         
@@ -59,7 +69,7 @@ classdef graph < handle
         self.list_assign_vars = {};
       end
       
-      self.nc = new_nc;
+      %     self.nc = new_nc;
       
       % test the type of NetCDF file: OceanSITES or ARGO
       % ------------------------------------------------
@@ -121,7 +131,8 @@ classdef graph < handle
           self.list_assign_vars{end+1} = k{i};
         end
       end
-    end
-  end
+    end  % end of validate_netcdf()
+    
+  end % end of public methods
   
 end % end of abstract class graph

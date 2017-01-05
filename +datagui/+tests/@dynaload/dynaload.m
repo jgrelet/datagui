@@ -10,12 +10,12 @@
 %     >> t = datagui.tests.dynaload('testMethod');
 %     >> t.run
 % or
-%     >> runtests datagui.tests.dynaload:testMethod
-%     >> runtests datagui.tests.dynaload -verbose
+%     >> runxunit datagui.tests.dynaload:testMethod
+%     >> runxunit datagui.tests.dynaload -verbose
 %
 % For example run all tests for datagui.dynaload :
 %
-%     >> runtests datagui.tests.dynaload
+%     >> runxunit datagui.tests.dynaload
 %     Test suite: datagui.tests.dynaload
 %     Test suite location: +datagui/+tests/@dynaload/dynaload.m
 %     09-Sep-2011 13:49:32

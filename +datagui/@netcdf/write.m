@@ -456,7 +456,13 @@ for i=1:numel(ncv_keys)
   try
     netcdf.putVar(self.nc_id, varid, value);
   catch exception
-    fprintf('\nwrite variable error: %s', key);
+    fprintf('\nwrite variable error: %s\n', key);
+    
+    for key = keys(self, 'Dimensions')
+      theKey = char(key);
+      fprintf('\t%s = %i ;\n', theKey, self.Dimensions.(theKey).dimlen);    
+    end
+    
     s %#ok<NOPRT>
     fprintf('check your dynaload csv or xls file !!!\n');
     % 'Matlab:datagui.netcdf.write:netcdf.putVar'

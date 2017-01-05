@@ -76,7 +76,8 @@ classdef excelRead
       delete(self.excel)
     end
     
-    % return 
+    % read more cells or zones in a sheet
+    % -----------------------------------
     function [varargout] = read(self, sheet, varargin)
       
       ActiveSheet = self.excel.Worksheets.Item(sheet);
