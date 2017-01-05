@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translate >
+  <Version value="7.18c" />
+  <ServerName value="Translate" />
+  <InputDir value="C:\seasoft\pirata-fr20\data" />
+  <InputFileArray size="1" GrowBy="-1" >
+    <ArrayItem index="0" value="uFR20001.cnv" />
+  </InputFileArray>
+  <OutputDir value="C:\seasoft\pirata-fr20\data" />
+  <NameAppend value="" />
+  <OutputFile value="uFR20001.cnv" />
+  <LastProcessed value="0" />
+  <Translation value="0" high="2" low="0" initialValue="0" />
+</Translate>

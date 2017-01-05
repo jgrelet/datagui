@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Derive >
+  <Version value="5.33" />
+  <ServerName value="Derive" />
+  <InstrumentPath value="c:\seasoft\egee1\egee1.con" />
+  <InstrumentMatch value="0" />
+  <InputDir value="c:\seasoft\egee1\data" />
+  <InputFileArray size="1" GrowBy="-1" >
+    <ArrayItem index="0" value="ege1001.cnv" />
+  </InputFileArray>
+  <OutputDir value="c:\seasoft\egee1\data" />
+  <NameAppend value="" />
+  <OutputFile value="ege1001.cnv" />
+  <LastProcessed value="0" />
+  <CalcArray Size="2" >
+    <CalcArrayItem index="0" CalcID="55" >
+      <Calc UnitID="61" Ordinal="0" >
+        <FullName value="Oxygen, SBE 43 [umol/Kg]" />
+        <WindowSize value="2.000000" />
+      </Calc>
+    </CalcArrayItem>
+    <CalcArrayItem index="1" CalcID="55" >
+      <Calc UnitID="61" Ordinal="1" >
+        <FullName value="Oxygen, SBE 43, 2 [umol/Kg]" />
+        <WindowSize value="2.000000" />
+      </Calc>
+    </CalcArrayItem>
+  </CalcArray>
+</Derive>

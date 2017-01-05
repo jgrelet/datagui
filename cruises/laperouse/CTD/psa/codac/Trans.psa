@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translate >
+  <Version value="7.22.2" />
+  <ServerName value="Translate" />
+  <InputDir value="m:\EPURE1\data-processing\CTD\data" />
+  <InputFileArray size="1" GrowBy="-1" >
+    <ArrayItem index="0" value="ep1-00.cnv" />
+  </InputFileArray>
+  <OutputDir value="m:\EPURE1\data-processing\CTD\data" />
+  <NameAppend value="" />
+  <OutputFile value="ep1-00.cnv" />
+  <LastProcessed value="0" />
+  <Translation value="0" high="2" low="0" initialValue="0" />
+</Translate>

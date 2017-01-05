@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Align_CTD >
+  <Version value="7.23.1" />
+  <ServerName value="Align CTD" />
+  <InputDir value="m:\AMOP\data-processing\CTD\codac\data" />
+  <InputFileArray size="1" GrowBy="-1" >
+    <ArrayItem index="0" value="am00101.cnv" />
+  </InputFileArray>
+  <OutputDir value="m:\AMOP\data-processing\CTD\codac\data" />
+  <NameAppend value="" />
+  <OutputFile value="am00101.cnv" />
+  <LastProcessed value="0" />
+  <CalcArray Size="2" >
+    <CalcArrayItem index="0" CalcID="81" >
+      <Calc UnitID="6" Ordinal="0" >
+        <FullName value="Temperature [ITS-90, deg C]" />
+      </Calc>
+    </CalcArrayItem>
+    <CalcArrayItem index="1" CalcID="12" >
+      <Calc UnitID="58" Ordinal="0" >
+        <FullName value="Conductivity [S/m]" />
+      </Calc>
+    </CalcArrayItem>
+  </CalcArray>
+  <ValArray size="2" >
+    <ValArrayItem index="0" value="0.000000" variable_name="Temperature" />
+    <ValArrayItem index="1" value="0.000000" variable_name="Conductivity" />
+  </ValArray>
+</Align_CTD>

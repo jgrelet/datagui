@@ -1,0 +1,12 @@
+@ batch pour traitement codac
+@
+datcnv /f%1.cnv /i%2\data\raw\%1.hex /o%2\data\codac /p%2\psa\codac\datcnv.psa /c%2\data\raw\%1.xmlcon
+wfilter /f%1.cnv /i%2\data\codac\%1.cnv  /o%2\data\codac /p%2\psa\codac\W_Filter.psa /c%2\data\raw\%1.xmlcon
+wildedit /f%1.cnv /i%2\data\codac\%1.cnv  /o%2\data\codac /p%2\psa\codac\wildedit.psa /c%2\data\raw\%1.xmlcon
+@alignctd /f%1.cnv /i%2\data\codac\%1.cnv /o%2\data\codac /p%2\psa\codac\alignctd.psa /c%2\data\raw\%1.xmlcon
+celltm /f%1.cnv /i%2\data\codac\%1.cnv /o%2\data\codac /p%2\psa\codac\celltm.psa /c%2\data\raw\%1.xmlcon
+filter /f%1.cnv /i%2\data\codac\%1.cnv /o%2\data\codac /p%2\psa\codac\filter.psa /c%2\data\raw\%1.xmlcon
+loopedit /f%1.cnv /i%2\data\codac\%1.cnv  /o%2\data\codac /p%2\psa\codac\loopedit.psa /c%2\data\raw\%1.xmlcon
+binavg /f%1.cnv /i%2\data\codac\%1.cnv /o%2\data\codac /p%2\psa\codac\binavg.psa /c%2\data\raw\%1.xmlcon
+derive /f%1.cnv /i%2\data\codac\%1.cnv /o%2\data\codac /p%2\psa\codac\derive.psa /c%2\data\raw\%1.xmlcon
+trans /f%1.cnv /i%2\data\codac\%1.cnv /o%2\data\codac /p%2\psa\codac\trans.psa 
