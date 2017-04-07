@@ -202,13 +202,24 @@ for id = 0:ngatts-1
   
   % put variable name and value to Attributes struct
   % ------------------------------------------------
+  
+  % if attribute name is '_NCProperties', transforme to 'NCProperties_'
+  % because Matlab doesn't handle member name begining with '_'
+  % ------------------------------------------------------------
+  match = regexp( gattName, '^(_)(.*$)', 'tokens');
+  if ~isempty(match)
+    gattName = strcat(match{1}{2}, match{1}{1});
+  end
+  % otherwise, dynamically fill attribute member of structure s
+  % with it's value
+  % -----------------------------------------------------------
   self.Attributes.(gattName) = s;
   
 end
 
 % close netcdf file
 % -----------------
-%netcdf.close(self.nc_id)
+netcdf.close(self.nc_id)
 
 % Display time to read file on console
 % -------------------------------------
