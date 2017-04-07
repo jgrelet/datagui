@@ -1,0 +1,12 @@
+@ batch pour traitement pmel
+@
+datcnv /f%1.cnv /i%2\data\raw\%1.hex /o%2\data\pmel /p%2\psa\pmel\datcnv.psa /c%2\data\raw\%1.xmlcon
+wfilter /f%1.cnv /i%2\data\pmel\%1.cnv  /o%2\data\pmel /p%2\psa\pmel\W_Filter.psa /c%2\data\raw\%1.xmlcon
+wildedit /f%1.cnv /i%2\data\pmel\%1.cnv  /o%2\data\pmel /p%2\psa\pmel\wildedit.psa /c%2\data\raw\%1.xmlcon
+@alignctd /f%1.cnv /i%2\data\pmel\%1.cnv /o%2\data\pmel /p%2\psa\pmel\alignctd.psa /c%2\data\raw\%1.xmlcon
+celltm /f%1.cnv /i%2\data\pmel\%1.cnv /o%2\data\pmel /p%2\psa\pmel\celltm.psa /c%2\data\raw\%1.xmlcon
+filter /f%1.cnv /i%2\data\pmel\%1.cnv /o%2\data\pmel /p%2\psa\pmel\filter.psa /c%2\data\raw\%1.xmlcon
+loopedit /f%1.cnv /i%2\data\pmel\%1.cnv  /o%2\data\pmel /p%2\psa\pmel\loopedit.psa /c%2\data\raw\%1.xmlcon
+binavg /f%1.cnv /i%2\data\pmel\%1.cnv /o%2\data\pmel /p%2\psa\pmel\binavg.psa /c%2\data\raw\%1.xmlcon
+derive /f%1.cnv /i%2\data\pmel\%1.cnv /o%2\data\pmel /p%2\psa\pmel\derive.psa /c%2\data\raw\%1.xmlcon
+trans /f%1.cnv /i%2\data\pmel\%1.cnv /o%2\data\pmel /p%2\psa\pmel\trans.psa 

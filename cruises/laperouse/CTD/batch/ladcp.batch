@@ -1,0 +1,5 @@
+@ conversion pour ladcp dans fichier cnv ascii
+datcnv /f%1_ladcp.cnv /i%2\data\raw\%1.hex /o%2\data\ladcp /p%2\psa\ladcp\datcnv.psa /c%2\data\raw\%1.xmlcon
+@wildedit /f%1_ladcp.cnv /i%2\data\ladcp\%1_ladcp.cnv  /o%2\data\ladcp /p%2\psa\ladcp\wildedit.psa /c%2\data\raw\%1.xmlcon
+binavg /f%1_ladcp.cnv /i%2\data\ladcp\%1_ladcp.cnv /o%2\data\ladcp /p%2\psa\ladcp\binavg.psa /c%2\data\raw\%1.xmlcon
+trans /f%1_ladcp.cnv /i%2\data\ladcp\%1_ladcp.cnv /o%2\data\ladcp /p%2\psa\ladcp\trans.psa /c%2\data\raw\%1.xmlcon

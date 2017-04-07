@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wild_Edit >
+  <Version value="7.23.2" />
+  <ServerName value="Wild Edit" />
+  <InputDir value="m:\PIRATA-FR24\data-processing\CTD\data\tmp" />
+  <InputFileArray size="1" GrowBy="-1" >
+    <ArrayItem index="0" value="fr26001.cnv" />
+  </InputFileArray>
+  <OutputDir value="m:\PIRATA-FR24\data-processing\CTD\data\tmp" />
+  <NameAppend value="" />
+  <OutputFile value="fr26001.cnv" />
+  <LastProcessed value="0" />
+  <StdDevPassOne value="2.000000" />
+  <StdDevPassTwo value="20.000000" />
+  <ScansPerBlock value="100" />
+  <MinDelta value="0.000000" />
+  <ExcludeMarkedBad value="1" />
+  <CalcArray Size="1" >
+    <CalcArrayItem index="0" CalcID="65" >
+      <Calc UnitID="3" Ordinal="0" >
+        <FullName value="Pressure, Digiquartz [db]" />
+      </Calc>
+    </CalcArrayItem>
+  </CalcArray>
+  <SelectArray >
+    <ArrayItem index="0" value="1" />
+  </SelectArray>
+</Wild_Edit>

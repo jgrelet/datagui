@@ -1,0 +1,16 @@
+@ seaplot AMOP
+@
+@ downcast
+@ trace en autoscale  TS O2 fluo
+seaplot /f%1  /i%2\data\cnv\d%1.cnv /o%2\plots\downcast /p%2\psa\seaplot\SeaPlot_autoscale1.psa
+@ trace en autoscale  TS 02 Cstar
+seaplot /f%1 /a-2  /i%2\data\cnv\d%1.cnv /o%2\plots\downcast /p%2\psa\seaplot\SeaPlot_autoscale2.psa
+@
+@ upcast
+@ trace en autoscale  TS O2 fluo
+seaplot /f%1 /i%2\data\cnv\u%1.cnv /o%2\plots\upcast /p%2\psa\seaplot\SeaPlot_autoscale1.psa
+@ trace en autoscale  TS 02 Cstar
+seaplot /f%1 /a-2 /i%2\data\cnv\u%1.cnv /o%2\plots\upcast /p%2\psa\seaplot\SeaPlot_autoscale2.psa
+@
+@ traceTS 
+seaplot /f%1 /a-ts /i%2\data\cnv\d%1.cnv /o%2\plots\TS /p%2\psa\seaplot\SeaPlot_ts.psa

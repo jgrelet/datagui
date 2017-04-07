@@ -1,0 +1,38 @@
+@ batch file pour traitement d'un profil CTD SBE911+ 
+@ PIRATA-FR24 - J grelet IRD avril 2014
+@ on selectionne le downcast dans binavg au lieu de split
+@ utiliser l'option #w  pour modifier les parametres
+@ on peut egalement ajouter des instructions DOS dans le script
+@
+@ usage: SBEBatch.exe %DIR%\CTD\pirata-fr24-std.batch fr24%1 M:\PIRATA-FR24\data-processing\CTD "#w" 
+@
+@ le traitement se fait sous tmp jusqu'a la reduction des donnees
+datcnv /f%1.cnv /i%2\data\raw\%1.hex /o%2\data\tmp /p%2\psa\std\datcnv.psa /c%2\data\raw\%1.xmlcon
+wildedit /f%1.cnv /i%2\data\tmp\%1.cnv  /o%2\data\tmp /p%2\psa\std\wildedit.psa /c%2\data\raw\%1.xmlcon
+filter /f%1.cnv /i%2\data\tmp\%1.cnv /o%2\data\tmp /p%2\psa\std\filter.psa /c%2\data\raw\%1.xmlcon
+alignctd /f%1.cnv /i%2\data\tmp\%1.cnv /o%2\data\tmp /p%2\psa\std\alignctd.psa /c%2\data\raw\%1.xmlcon
+celltm /f%1.cnv /i%2\data\tmp\%1.cnv /o%2\data\tmp /p%2\psa\std\celltm.psa /c%2\data\raw\%1.xmlcon
+loopedit /f%1.cnv /i%2\data\tmp\%1.cnv  /o%2\data\tmp /p%2\psa\std\loopedit.psa /c%2\data\raw\%1.xmlcon
+wfilter /f%1.cnv /i%2\data\tmp\%1.cnv  /o%2\data\tmp /p%2\psa\std\W_Filter.psa /c%2\data\raw\%1.xmlcon
+
+@ on derive l'ensemble (downcast + upcast ) avant reduction, 
+derive /f%1.cnv /i%2\data\tmp\%1.cnv /o%2\data\tmp /p%2\psa\std\derive.psa /c%2\data\raw\%1.xmlcon
+
+@ Bin Average averages data and output into upcast (pressure decreasing) and/or downcast (pressure increasing) files.
+binavg /f%1.cnv /i%2\data\tmp\%1.cnv /o%2\data\cnv /p%2\psa\std\binavg.psa /c%2\data\raw\%1.xmlcon
+@ downcast
+binavg /fd%1.cnv /i%2\data\tmp\%1.cnv /o%2\data\cnv /p%2\psa\std\binavg_downcast.psa /c%2\data\raw\%1.xmlcon
+@ upcast
+binavg /fu%1.cnv /i%2\data\tmp\%1.cnv /o%2\data\cnv /p%2\psa\std\binavg_upcast.psa /c%2\data\raw\%1.xmlcon
+
+@ Translate profiles from binary to ascii
+trans /fd%1 /i%2\data\cnv\d%1.cnv /o%2\data\cnv /p%2\psa\std\trans.psa /c%2\data\raw\%1.xmlcon
+trans /fu%1 /i%2\data\cnv\u%1.cnv /o%2\data\cnv /p%2\psa\std\trans.psa /c%2\data\raw\%1.xmlcon
+trans /f%1 /i%2\data\cnv\%1.cnv /o%2\data\cnv /p%2\psa\std\trans.psa /c%2\data\raw\%1.xmlcon
+
+@ ASCII Out outputs the header portion and/or the data portion of a converted data file (.cnv). 
+@ Data portion is written in ASCII engineering units to a .asc, header portion is written to a .hdr file. 
+asciiout /f%1 /i%2\data\cnv\%1.cnv /o%2\data\asc /p%2\psa\std\ascii_out.psa /c%2\data\raw\%1.xmlcon
+@
+
+

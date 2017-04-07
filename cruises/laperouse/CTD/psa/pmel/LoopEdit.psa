@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Loop_Edit >
+  <Version value="7.22.2" />
+  <ServerName value="Loop Edit" />
+  <InputDir value="m:\EPURE1\data-processing\CTD\data" />
+  <InputFileArray size="1" GrowBy="-1" >
+    <ArrayItem index="0" value="ep1-00.cnv" />
+  </InputFileArray>
+  <OutputDir value="m:\EPURE1\data-processing\CTD\data" />
+  <NameAppend value="" />
+  <OutputFile value="ep1-00.cnv" />
+  <LastProcessed value="0" />
+  <MinVelocityType value="0" high="1" low="0" initialValue="0" />
+  <MinCTD_Velocity value="0.250000" />
+  <TimeWindowSize value="300.000000" />
+  <PercentMeanSpeed value="20.000000" />
+  <ExcludeMarkedBad value="1" />
+  <RemoveSurfaceSoak value="0" />
+  <UseDeckPressure value="1" />
+  <SurfaceSoakDepth value="10.000000" />
+  <SurfaceSoakDepthMin value="5.000000" />
+  <SurfaceSoakDepthMax value="20.000000" />
+</Loop_Edit>
