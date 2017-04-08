@@ -146,14 +146,14 @@ for id = 0:nvars-1
   % ------------------------------------------------------
   if xtype == self.NC_CHAR && (size(s.data__', 1) == 1)
     s.data__ = s.data__';
-  
-  % Because MATLAB uses FORTRAN-style indexing, we need to transpose
-  % N-D array (k,i,j,...) to (i,j,k,...) however, the order of
-  % the dimension IDs is reversed relative to what would be obtained
-  % from the C API
-  % If s.data__ is a vector, NetCDF API return vertical vector, 
-  % do nothing, it's OK
-  % -----------------------------------------------------------------
+    
+    % Because MATLAB uses FORTRAN-style indexing, we need to transpose
+    % N-D array (k,i,j,...) to (i,j,k,...) however, the order of
+    % the dimension IDs is reversed relative to what would be obtained
+    % from the C API
+    % If s.data__ is a vector, NetCDF API return vertical vector,
+    % do nothing, it's OK
+    % -----------------------------------------------------------------
   elseif length(dimids) > 1
     s.data__ = permute(s.data__, fliplr(1:length(dimids)));
     dimids = fliplr(dimids);
@@ -181,13 +181,9 @@ for id = 0:nvars-1
   
 end
 
-% get gloabal attributes and store to netcdf hashtable
-% -----------------------------------------------------
+% get gloabal attributes and store to netcdf object
+% -------------------------------------------------
 for id = 0:ngatts-1
-  
-  % initialize empty structure
-  % --------------------------
-  s = [];
   
   % Get the name of the global attribute associated with the
   % variable.
@@ -197,24 +193,28 @@ for id = 0:ngatts-1
   
   % Get value of global attribute.
   % ------------------------------
-  s.data__ = netcdf.getAtt(self.nc_id, ...
+  theValue = netcdf.getAtt(self.nc_id, ...
     datagui.netcdf.NC_GLOBAL, gattName);
   
   % put variable name and value to Attributes struct
-  % ------------------------------------------------
-  
-  % if attribute name is '_NCProperties', transforme to 'NCProperties_'
-  % because Matlab doesn't handle member name begining with '_'
+  % dynamically fill attribute member of structure swith it's value
   % ------------------------------------------------------------
-  match = regexp( gattName, '^(_)(.*$)', 'tokens');
-  if ~isempty(match)
-    gattName = strcat(match{1}{2}, match{1}{1});
+  if isvarname(gattName)
+    self.Attributes.(gattName) = theValue;
+  else
+    % if attribute name begin with invalid variable name and has the
+    % form '_varname' like '_NCProperties', transforme to 'NCProperties_'
+    % because Matlab doesn't handle member name begining with '_'
+    % --------------------------------------------------------------
+    match = regexp( gattName, '^(_)(.*$)', 'tokens');
+    if ~isempty(match)
+      gattName = strcat(match{1}{2}, match{1}{1});
+      self.Attributes.(gattName) = theValue;
+    else
+      error(message('MATLAB:datagui:netcdf;read;InvalidAttributeName'));
+    end
   end
-  % otherwise, dynamically fill attribute member of structure s
-  % with it's value
-  % -----------------------------------------------------------
-  self.Attributes.(gattName) = s;
-  
+ 
 end
 
 % close netcdf file
