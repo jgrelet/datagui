@@ -187,7 +187,7 @@ for theKey = keys(nc, 'Attributes')
   
   % get theValue
   % ------------
-  theValue = nc.Attributes.(char(theKey)).data__;
+  theValue = nc.Attributes.(char(theKey));
   
   % check global attribute type and set display format
   % --------------------------------------------------
