@@ -48,10 +48,10 @@ for k = sheets
   % read Excel worksheet in raw mode (unprocessed cell content) which
   % contains both numeric and text data, empty cell is fillwith NaN
   % -----------------------------------------------------------------
-  fprintf('Read station %s\n', station)
-  %
+  fprintf('Read station %s', station)
   [date,latitude,longitude,data] = ...
     xls.read(xls.sheets{k},'P11','Q9','Q10','C34:AC57');
+  fprintf('\t%s\t%+8.3f\t%+7.3f\n', date, longitude, latitude)
   
   % reverse sampling order
   % ----------------------
@@ -96,8 +96,7 @@ for k = sheets
     if isnan(DEPTH(j))
       fprintf( fid_odv, '\t');
     else
-      fprintf( fid_odv, '%6.1f\t', DEPTH(j));
-    end
+      fprintf( fid_odv, '%6.1f\t', DEPTH(j));    end
     if isnan(BOTL(j))
       fprintf( fid_odv, '\t');
     else
