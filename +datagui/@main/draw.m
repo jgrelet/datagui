@@ -109,8 +109,8 @@ switch self.route_value
     if length( limy(1):interly:limy(2)) > 9
       interly = 4;
     end
-    [tickx, labelx] = tickgeo( limx(1), limx(2), intervx, limx(1), interlx, 1);
-    [ticky, labely] = tickgeo( limy(1), limy(2), intervy, limy(1), interly, 0);
+    [tickx, labelx] = datagui.tools.tickgeo( limx(1), limx(2), intervx, limx(1), interlx, 1);
+    [ticky, labely] = datagui.tools.tickgeo( limy(1), limy(2), intervy, limy(1), interly, 0);
     
     switch self.map
       case 'NONE'   % none

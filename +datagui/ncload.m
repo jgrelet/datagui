@@ -90,7 +90,7 @@ if isempty(varargin)
     
     % assign attribute to caller workspace
     % -------------------------------------
-    assignin('caller', attribute, nc.Attributes.(attribute).data__);
+    assignin('caller', attribute, nc.Attributes.(attribute));
   end
 end
 
