@@ -24,7 +24,7 @@ function opt=varargin2struct(varargin)
 
 len=length(varargin);
 opt=struct;
-if(len==0) return; end
+if(len==0), return; end
 i=1;
 while(i<=len)
     if(isstruct(varargin{i}))

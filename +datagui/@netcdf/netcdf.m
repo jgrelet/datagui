@@ -426,7 +426,7 @@ classdef netcdf < datagui.dynaload
       % -------------------------------
       if (nargin >= 3 )
         property_argin = varargin(next:end);
-        while length(property_argin) >= 2,
+        while length(property_argin) >= 2
           property = property_argin{1};
           value    = property_argin{2};
           property_argin = property_argin(3:end);
@@ -521,9 +521,9 @@ classdef netcdf < datagui.dynaload
       
       % use local variables for displaying boolean
       % ------------------------------------------
-      if self.AutoNan,   theAutonan   = 'true'; else theAutonan   = 'false'; end
-      if self.AutoScale, theAutoscale = 'true'; else theAutoscale = 'false'; end
-      if self.AutoForm,  theAutoform  = 'true'; else theAutoform  = 'false'; end
+      if self.AutoNan,   theAutonan   = 'true'; else, theAutonan   = 'false'; end
+      if self.AutoScale, theAutoscale = 'true'; else, theAutoscale = 'false'; end
+      if self.AutoForm,  theAutoform  = 'true'; else, theAutoform  = 'false'; end
       
       
       % display properties

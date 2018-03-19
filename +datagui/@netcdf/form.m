@@ -73,15 +73,15 @@ for nk = nca_keys
   % check for empty field and replace them by default value
   % -------------------------------------------------------
   %&& isempty(s.length)
-  if ~isfield(s, 'length'), s.length = default_length; end;
-  if ~isfield(s, 'height'), s.height = default_height; end;
-  if ~isfield(s, 'comment'), s.comment = ''; end;
-  if ~isfield(s, 'name'), s.name = key; end;
-  if ~isfield(s, 'uicontrolType'), s.uicontrolType = 'edit'; end;
-  if ~isfield(s, 'horizontalAlignment'), s.horizontalAlignment = 'right'; end;
-  if ~isfield(s, 'string'), s.string = s.data__; end;
-  if ~isfield(s, 'value'), s.value = 0; end;
-  if ~isfield(s, 'conventions'), s.conventions = ''; end;
+  if ~isfield(s, 'length'), s.length = default_length; end
+  if ~isfield(s, 'height'), s.height = default_height; end
+  if ~isfield(s, 'comment'), s.comment = ''; end
+  if ~isfield(s, 'name'), s.name = key; end
+  if ~isfield(s, 'uicontrolType'), s.uicontrolType = 'edit'; end
+  if ~isfield(s, 'horizontalAlignment'), s.horizontalAlignment = 'right'; end
+  if ~isfield(s, 'string'), s.string = s.data__; end
+  if ~isfield(s, 'value'), s.value = 0; end
+  if ~isfield(s, 'conventions'), s.conventions = ''; end
   
   % set date_update with actual date
   % --------------------------------

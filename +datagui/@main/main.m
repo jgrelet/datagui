@@ -194,7 +194,7 @@ classdef main < datagui.graphics.graph
       % method save_config
       datagui.main.save_config(self);
       % close figure and listeners
-      if ~isempty(src) && ishandle(src);
+      if ~isempty(src) && ishandle(src)
         delete(src);
       end
       % close opened netcdf file
@@ -206,7 +206,7 @@ classdef main < datagui.graphics.graph
     
     % display object
     % --------------
-    function display(self) %#ok<MANU>
+    function disp(self) %#ok<MANU>
       % do nothing
     end
     
