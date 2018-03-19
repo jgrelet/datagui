@@ -182,7 +182,7 @@ for id = 0:nvars-1
 end
 
 % get gloabal attributes and store to netcdf object
-% -------------------------------------------------
+% -------------------------------------------------https://github.com/jgrelet/datagui.git
 for id = 0:ngatts-1
   
   % Get the name of the global attribute associated with the
@@ -216,10 +216,6 @@ for id = 0:ngatts-1
   end
  
 end
-
-% close netcdf file
-% -----------------
-netcdf.close(self.nc_id)
 
 % Display time to read file on console
 % -------------------------------------
