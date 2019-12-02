@@ -99,7 +99,7 @@ end
 result = varargin;
 
 if nargout > 0
-  theResult = result %#ok<NOPRT>
+  theResult = nc;
 else
   % Assign a value to base-workspace.
   % ---------------------------------
